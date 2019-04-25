@@ -26,13 +26,18 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenCalendar)];
     tap.delegate = self;
     [self addGestureRecognizer:tap];
-    [self installView];
     return self;
+}
+
+- (void)updateConstraints {
+    [self installView];
+    //according to apple super should be called at end of method
+    [super updateConstraints];
 }
 
 -(void)installView
 {
-    self.backgroundColor = [UIColor colorWithRed:22 green:0 blue:0 alpha:.7];
+    self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.7];
     //半透明背景
     //    [self addSubview:self.backView];
     //    [_backView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -67,26 +72,26 @@
         picker.backgroundColor = [UIColor whiteColor];
         picker.delegate = self;
         [_calendarView addSubview:picker];
-        [picker mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.right.left.equalTo(_calendarView);
+        [picker mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.right.left.equalTo(self->_calendarView);
         }];
         //分割线
         UIView *left = [UIView new];
         left.backgroundColor = [UIColor darkTextColor];
         [_calendarView addSubview:left];
-        [left mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(_calendarView);
+        [left mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self->_calendarView);
             make.height.equalTo(@1);
             make.width.equalTo(@(self.bounds.size.width/3));
-            make.centerY.equalTo(_calendarView);
+            make.centerY.equalTo(self->_calendarView);
         }];
         UIView *right = [UIView new];
         right.backgroundColor = [UIColor darkTextColor];
         [_calendarView addSubview:right];
-        [right mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(_calendarView);
+        [right mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(self->_calendarView);
             make.height.width.equalTo(left);
-            make.centerY.equalTo(_calendarView);
+            make.centerY.equalTo(self->_calendarView);
         }];
         //确定按钮
         UIButton *confirm = [UIButton new];
@@ -94,10 +99,10 @@
         [confirm setTitle:@"确定" forState:UIControlStateNormal];
         [confirm setTitleColor:[UIColor colorWithRed:51.0/255.0 green:51.0/255.0 blue:51.0/255.0 alpha:1.0] forState:UIControlStateNormal];
         [_calendarView addSubview:confirm];
-        [confirm mas_makeConstraints:^(MASConstraintMaker *make) {
+        [confirm mas_updateConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(picker.mas_bottom).offset(10);
-            make.left.right.equalTo(_calendarView);
-            make.bottom.equalTo(_calendarView);
+            make.left.right.equalTo(self->_calendarView);
+            make.bottom.equalTo(self->_calendarView);
             make.height.equalTo(@40);
         }];
         [confirm addTarget:self action:@selector(confirmAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -131,7 +136,7 @@
     self.alpha = 0;
     UIView *topView = [[UIApplication sharedApplication] keyWindow];
     [topView addSubview:self];
-    [self mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self mas_updateConstraints:^(MASConstraintMaker *make) {
         make.size.equalTo(topView);
         make.center.equalTo(topView);
     }];
@@ -185,16 +190,15 @@
 {
     return self.yearArray.count;
 }
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+-(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 {
-    for(UIView *speartorView in pickerView.subviews)
-    {
-        if (speartorView.frame.size.height < 1)//取出分割线view
-        {
-            speartorView.backgroundColor = [UIColor clearColor];//隐藏分割线
-        }
-    }
-    return self.yearArray[row];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 34)];
+    label.text = [NSString stringWithFormat:@"%@",self.yearArray[row]];
+    label.textAlignment = NSTextAlignmentCenter;
+    //    label.backgroundColor = [UIColor lightGrayColor];
+    label.font = [UIFont systemFontOfSize:23];
+    
+    return label;
 }
 
 #pragma mark delegate

@@ -31,7 +31,7 @@
 
     headerView = [[MasRecordHeaderView alloc] initWith:@"阿庆嫂包子铺" Block:^{
         //显示日历
-        [calendarView showCalendar];
+        [self->calendarView showCalendar];
     }];
     [self.view addSubview:headerView];
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
