@@ -1,0 +1,6 @@
+framework module Pods_MasPatrolUI {
+  umbrella header "Pods-MasPatrolUI-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -13,9 +13,15 @@
 		81E07158227185C400E3880B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81E07157227185C400E3880B /* Assets.xcassets */; };
 		81E0715B227185C400E3880B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81E07159227185C400E3880B /* LaunchScreen.storyboard */; };
 		81E0715E227185C400E3880B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E0715D227185C400E3880B /* main.m */; };
+		81E0716A227185FD00E3880B /* PatrolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E07165227185FC00E3880B /* PatrolViewController.m */; };
+		81E0716B227185FD00E3880B /* MasRecordHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E07167227185FC00E3880B /* MasRecordHeaderView.m */; };
+		81E0716C227185FD00E3880B /* MasCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E07169227185FD00E3880B /* MasCalendarView.m */; };
+		D68D4151C0B9EE90EA3108AD /* Pods_MasPatrolUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0980048FC36F1B0972665932 /* Pods_MasPatrolUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0980048FC36F1B0972665932 /* Pods_MasPatrolUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MasPatrolUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E606ED0FB0BF5C440FF48CA /* Pods-MasPatrolUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasPatrolUI.release.xcconfig"; path = "Pods/Target Support Files/Pods-MasPatrolUI/Pods-MasPatrolUI.release.xcconfig"; sourceTree = "<group>"; };
 		81E0714B227185C000E3880B /* MasPatrolUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MasPatrolUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E0714E227185C000E3880B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		81E0714F227185C000E3880B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -26,6 +32,13 @@
 		81E0715A227185C400E3880B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81E0715C227185C400E3880B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81E0715D227185C400E3880B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		81E07164227185FB00E3880B /* MasRecordHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasRecordHeaderView.h; sourceTree = "<group>"; };
+		81E07165227185FC00E3880B /* PatrolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatrolViewController.m; sourceTree = "<group>"; };
+		81E07166227185FC00E3880B /* PatrolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatrolViewController.h; sourceTree = "<group>"; };
+		81E07167227185FC00E3880B /* MasRecordHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasRecordHeaderView.m; sourceTree = "<group>"; };
+		81E07168227185FD00E3880B /* MasCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasCalendarView.h; sourceTree = "<group>"; };
+		81E07169227185FD00E3880B /* MasCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasCalendarView.m; sourceTree = "<group>"; };
+		D52450050C978EB7550CDEA5 /* Pods-MasPatrolUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasPatrolUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MasPatrolUI/Pods-MasPatrolUI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +46,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D68D4151C0B9EE90EA3108AD /* Pods_MasPatrolUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37FA55E08D16256BA223BAED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0980048FC36F1B0972665932 /* Pods_MasPatrolUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		81E07142227185C000E3880B = {
 			isa = PBXGroup;
 			children = (
 				81E0714D227185C000E3880B /* MasPatrolUI */,
 				81E0714C227185C000E3880B /* Products */,
+				FD7D2E7AEDECB70C5ECA6E78 /* Pods */,
+				37FA55E08D16256BA223BAED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +82,7 @@
 		81E0714D227185C000E3880B /* MasPatrolUI */ = {
 			isa = PBXGroup;
 			children = (
+				81E0716D2271860200E3880B /* Record */,
 				81E0714E227185C000E3880B /* AppDelegate.h */,
 				81E0714F227185C000E3880B /* AppDelegate.m */,
 				81E07151227185C000E3880B /* ViewController.h */,
@@ -71,6 +96,28 @@
 			path = MasPatrolUI;
 			sourceTree = "<group>";
 		};
+		81E0716D2271860200E3880B /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				81E07166227185FC00E3880B /* PatrolViewController.h */,
+				81E07165227185FC00E3880B /* PatrolViewController.m */,
+				81E07164227185FB00E3880B /* MasRecordHeaderView.h */,
+				81E07167227185FC00E3880B /* MasRecordHeaderView.m */,
+				81E07168227185FD00E3880B /* MasCalendarView.h */,
+				81E07169227185FD00E3880B /* MasCalendarView.m */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		FD7D2E7AEDECB70C5ECA6E78 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D52450050C978EB7550CDEA5 /* Pods-MasPatrolUI.debug.xcconfig */,
+				1E606ED0FB0BF5C440FF48CA /* Pods-MasPatrolUI.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -78,9 +125,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 81E07161227185C400E3880B /* Build configuration list for PBXNativeTarget "MasPatrolUI" */;
 			buildPhases = (
+				CD93F08520FF1D6CEB1EF98C /* [CP] Check Pods Manifest.lock */,
 				81E07147227185C000E3880B /* Sources */,
 				81E07148227185C000E3880B /* Frameworks */,
 				81E07149227185C000E3880B /* Resources */,
+				6A5BFB31BD01A92074DA8911 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -136,13 +185,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6A5BFB31BD01A92074DA8911 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MasPatrolUI/Pods-MasPatrolUI-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MasPatrolUI/Pods-MasPatrolUI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD93F08520FF1D6CEB1EF98C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MasPatrolUI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		81E07147227185C000E3880B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81E0716B227185FD00E3880B /* MasRecordHeaderView.m in Sources */,
 				81E07153227185C000E3880B /* ViewController.m in Sources */,
+				81E0716C227185FD00E3880B /* MasCalendarView.m in Sources */,
 				81E0715E227185C400E3880B /* main.m in Sources */,
+				81E0716A227185FD00E3880B /* PatrolViewController.m in Sources */,
 				81E07150227185C000E3880B /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,15 +374,17 @@
 		};
 		81E07162227185C400E3880B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D52450050C978EB7550CDEA5 /* Pods-MasPatrolUI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2C4H9T5RF5;
 				INFOPLIST_FILE = MasPatrolUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jinher.MasPatrolUI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinher.DianShang1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -299,15 +392,17 @@
 		};
 		81E07163227185C400E3880B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E606ED0FB0BF5C440FF48CA /* Pods-MasPatrolUI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2C4H9T5RF5;
 				INFOPLIST_FILE = MasPatrolUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jinher.MasPatrolUI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinher.DianShang1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
