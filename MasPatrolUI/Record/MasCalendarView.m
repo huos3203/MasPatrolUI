@@ -8,7 +8,7 @@
 
 #import "MasCalendarView.h"
 #import <Masonry/Masonry.h>
-@interface MasCalendarView()<UIPickerViewDataSource,UIPickerViewDelegate,UIGestureRecognizerDelegate>
+@interface MasCalendarView()<UIPickerViewDataSource,UIPickerViewDelegate>
 @property (strong, nonatomic) NSString *year;
 @property (strong, nonatomic) NSArray *yearArray;
 @property (strong, nonatomic) UIView *backView;
@@ -23,9 +23,6 @@
 {
     self = [super init];
     ComfirmHandler = handler;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenCalendar)];
-    tap.delegate = self;
-    [self addGestureRecognizer:tap];
     return self;
 }
 
@@ -37,16 +34,16 @@
 
 -(void)installView
 {
-    self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.7];
+    self.backgroundColor = [UIColor colorWithRed:12 green:0 blue:0 alpha:.7];
     //半透明背景
-    //    [self addSubview:self.backView];
-    //    [_backView mas_makeConstraints:^(MASConstraintMaker *make) {
-    //       make.top.left.right.bottom.equalTo(self);
-    //    }];
+    [self addSubview:self.backView];
+    [_backView mas_makeConstraints:^(MASConstraintMaker *make) {
+       make.top.left.right.equalTo(self);
+    }];
     //picker
     [self addSubview:self.calendarView];
     [self.calendarView mas_makeConstraints:^(MASConstraintMaker *make) {
-        //        make.top.equalTo(self.backView.mas_bottom);
+        make.top.equalTo(self.backView.mas_bottom);
         make.left.right.bottom.equalTo(self);
         make.height.equalTo(@150);
     }];
@@ -57,6 +54,7 @@
 {
     if (!_backView) {
         _backView = [UIView new];
+        _backView.userInteractionEnabled = NO;
         _backView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.7];
     }
     return _backView;
@@ -110,18 +108,6 @@
     return _calendarView;
 }
 #pragma mark UI action
--(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
-{
-    //y小于screen.frame.y - 150
-    CGFloat yy = 150;
-    CGFloat ky = [gestureRecognizer locationInView:self].y;
-    BOOL yB = (ky < [[UIScreen mainScreen] bounds].size.height - yy);
-    if (yB) {
-        return true;
-    }
-    return false;
-}
-
 ///按钮事件
 -(void)confirmAction:(UIButton *)confirm
 {
