@@ -19,16 +19,25 @@
 {
     MasRecordHeaderView *headerView;
     MasCalendarView *calendarView;
+    UITableView *iTableView;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor redColor];
+    [self installView];
+    
+    
+    
+    [headerView reloadYear:@"2019" num:@"99"];
+}
+//
+-(void)installView
+{
     calendarView = [[MasCalendarView alloc] initWithBlock:^(NSString * year) {
         [self filterRecordBy:year];
     }];
     
-
     headerView = [[MasRecordHeaderView alloc] initWith:@"阿庆嫂包子铺" Block:^{
         //显示日历
         [self->calendarView showCalendar];
@@ -38,7 +47,6 @@
         make.centerY.centerX.equalTo(self.view);
         make.size.equalTo(self.view);
     }];
-    [headerView reloadYear:@"2019" num:@"99"];
 }
 -(void)viewWillAppear:(BOOL)animated
 {

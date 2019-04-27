@@ -7,7 +7,14 @@
 //
 
 #import "MasRecordHeaderView.h"
+#import "MasRecordCell.h"
 #import <Masonry/Masonry.h>
+
+@interface MasRecordHeaderView()<UITableViewDelegate,UITableViewDataSource>
+@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) NSArray *dataArray;
+@end
+
 @implementation MasRecordHeaderView
 {
     NSString *storeName;
@@ -53,6 +60,13 @@
     [errorView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(headerView.mas_bottom).offset(8);
         make.bottom.leading.trailing.equalTo(bodyView);
+    }];
+    
+    //tableView
+    [bodyView addSubview:self.tableView];
+    [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.size.equalTo(errorView);
+        make.center.equalTo(errorView);
     }];
 }
 
@@ -149,6 +163,24 @@
     return errorView;
 }
 
+-(UITableView *)tableView
+{
+    if (!_tableView) {
+        _tableView = [UITableView new];
+        [_tableView registerClass:[MasRecordCell class] forCellReuseIdentifier:@"MasRecordCell"];
+        _tableView.dataSource = self;
+        _tableView.delegate = self;
+    }
+    return _tableView;
+}
+///
+-(NSArray *)dataArray
+{
+    if (!_dataArray) {
+        _dataArray = @[@"测试1",@"测试2",@"测试3"];
+    }
+    return _dataArray;
+}
 #pragma mark 显示日历
 -(void)switchYearAction
 {
@@ -164,5 +196,24 @@
     statusLabel.text = [NSString stringWithFormat:@"%@年巡查次数:%@",year,num];;
 }
 
+#pragma mark tableView
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.dataArray.count;
+}
 
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MasRecordCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MasRecordCell"];
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
 @end

@@ -16,6 +16,7 @@
 		81E0716A227185FD00E3880B /* PatrolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E07165227185FC00E3880B /* PatrolViewController.m */; };
 		81E0716B227185FD00E3880B /* MasRecordHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E07167227185FC00E3880B /* MasRecordHeaderView.m */; };
 		81E0716C227185FD00E3880B /* MasCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E07169227185FD00E3880B /* MasCalendarView.m */; };
+		81E071702274288500E3880B /* MasRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E0716F2274288500E3880B /* MasRecordCell.m */; };
 		D68D4151C0B9EE90EA3108AD /* Pods_MasPatrolUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0980048FC36F1B0972665932 /* Pods_MasPatrolUI.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,8 @@
 		81E07167227185FC00E3880B /* MasRecordHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasRecordHeaderView.m; sourceTree = "<group>"; };
 		81E07168227185FD00E3880B /* MasCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasCalendarView.h; sourceTree = "<group>"; };
 		81E07169227185FD00E3880B /* MasCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasCalendarView.m; sourceTree = "<group>"; };
+		81E0716E2274288500E3880B /* MasRecordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasRecordCell.h; sourceTree = "<group>"; };
+		81E0716F2274288500E3880B /* MasRecordCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasRecordCell.m; sourceTree = "<group>"; };
 		D52450050C978EB7550CDEA5 /* Pods-MasPatrolUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasPatrolUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MasPatrolUI/Pods-MasPatrolUI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +108,8 @@
 				81E07167227185FC00E3880B /* MasRecordHeaderView.m */,
 				81E07168227185FD00E3880B /* MasCalendarView.h */,
 				81E07169227185FD00E3880B /* MasCalendarView.m */,
+				81E0716E2274288500E3880B /* MasRecordCell.h */,
+				81E0716F2274288500E3880B /* MasRecordCell.m */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81E0716B227185FD00E3880B /* MasRecordHeaderView.m in Sources */,
+				81E071702274288500E3880B /* MasRecordCell.m in Sources */,
 				81E07153227185C000E3880B /* ViewController.m in Sources */,
 				81E0716C227185FD00E3880B /* MasCalendarView.m in Sources */,
 				81E0715E227185C400E3880B /* main.m in Sources */,
@@ -378,14 +384,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9CA5KUE8T7;
+				DEVELOPMENT_TEAM = 2C4H9T5RF5;
 				INFOPLIST_FILE = MasPatrolUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jinher.DianShang1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinher.i;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -397,14 +403,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9CA5KUE8T7;
+				DEVELOPMENT_TEAM = 2C4H9T5RF5;
 				INFOPLIST_FILE = MasPatrolUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jinher.DianShang1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinher.i;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
