@@ -30,6 +30,7 @@
     
     
     [headerView reloadYear:@"2019" num:@"99"];
+    [headerView reloadData:@[@"测试1",@"测试2",@"测试3"]];
 }
 //
 -(void)installView

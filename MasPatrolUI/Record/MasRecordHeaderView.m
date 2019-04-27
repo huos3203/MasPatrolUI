@@ -13,6 +13,8 @@
 @interface MasRecordHeaderView()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) NSArray *dataArray;
+@property (strong, nonatomic) UIView *bodyView;
+@property (strong, nonatomic) UIView *errorView;
 @end
 
 @implementation MasRecordHeaderView
@@ -26,47 +28,34 @@
 {
     if (self = [super init]) {
         storeName = title;
-        [self ibBodyView];
+        [self installView];
         ActionHandler = showHandler;
     }
     return self;
 }
 
-/**
- PatrolMap2.storyboard:CurShopRecordController
- 1. IbErrorView
- 2. YearBootomView
- */
--(void)ibBodyView
+-(void)installView
 {
-    UIView *bodyView = [UIView new];
-    bodyView.backgroundColor = [UIColor grayColor];
-    [self addSubview:bodyView];
-    [bodyView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@40);
-        make.left.right.bottom.equalTo(self);
-    }];
     //门店信息View
     UIView *headerView = [self headerView];
-    [bodyView addSubview:headerView];
+    [self addSubview:headerView];
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(bodyView).offset(8);
-        make.left.width.equalTo(bodyView);
+        make.top.equalTo(self);
+        make.left.width.equalTo(self);
         make.height.equalTo(@80);
     }];
     //错误View
-    UIView *errorView = [self errorView];
-    [bodyView addSubview:errorView];
-    [errorView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(headerView.mas_bottom).offset(8);
-        make.bottom.leading.trailing.equalTo(bodyView);
+    [self addSubview:self.errorView];
+    [self.errorView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(headerView.mas_bottom);
+        make.bottom.leading.trailing.equalTo(self);
     }];
     
     //tableView
-    [bodyView addSubview:self.tableView];
+    [self addSubview:self.tableView];
     [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.size.equalTo(errorView);
-        make.center.equalTo(errorView);
+        make.size.equalTo(self->_errorView);
+        make.center.equalTo(self->_errorView);
     }];
 }
 
@@ -126,41 +115,43 @@
 
 -(UIView *)errorView
 {
-    UIView *errorView = [UIView new];
-    errorView.backgroundColor = [UIColor whiteColor];
-    //状态图片
-    UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
-    [errorView addSubview:imgView];
-    imgView.backgroundColor = [UIColor redColor];
-    [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.height.equalTo(@150);
-        make.centerX.equalTo(errorView);
-        make.centerY.equalTo(errorView).offset(-70);
-    }];
-    //提示语
-    UIColor *textcolor = [UIColor colorWithRed:153.0/255.0 green:153.0/255.0 blue:153.0/255.0 alpha:1.0];
-    UILabel *msg = [UILabel new];
-    msg.text = @"抱歉，您还没有数据";
-    msg.font = [UIFont systemFontOfSize:17.0];
-    msg.textColor = textcolor;
-    [errorView addSubview:msg];
-    [msg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(imgView.mas_bottom).offset(10);
-        make.centerX.equalTo(imgView);
-    }];
-    //刷新按钮
-    UIButton *refresh = [UIButton new];
-    [refresh setTitleColor:textcolor forState:UIControlStateNormal];
-    refresh.titleLabel.font = [UIFont systemFontOfSize:15.0];
-    [refresh setTitle:@"点我刷新" forState:UIControlStateNormal];
-    [errorView addSubview:refresh];
-    [refresh mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@100);
-        make.height.equalTo(@30);
-        make.top.equalTo(msg.mas_bottom).offset(10);
-        make.centerX.equalTo(errorView);
-    }];
-    return errorView;
+    if (!_errorView) {
+        _errorView = [UIView new];
+        _errorView.backgroundColor = [UIColor whiteColor];
+        //状态图片
+        UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
+        [_errorView addSubview:imgView];
+        imgView.backgroundColor = [UIColor redColor];
+        [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.height.equalTo(@150);
+            make.centerX.equalTo(self->_errorView);
+            make.centerY.equalTo(self->_errorView).offset(-70);
+        }];
+        //提示语
+        UIColor *textcolor = [UIColor colorWithRed:153.0/255.0 green:153.0/255.0 blue:153.0/255.0 alpha:1.0];
+        UILabel *msg = [UILabel new];
+        msg.text = @"抱歉，您还没有数据";
+        msg.font = [UIFont systemFontOfSize:17.0];
+        msg.textColor = textcolor;
+        [_errorView addSubview:msg];
+        [msg mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(imgView.mas_bottom).offset(10);
+            make.centerX.equalTo(imgView);
+        }];
+        //刷新按钮
+        UIButton *refresh = [UIButton new];
+        [refresh setTitleColor:textcolor forState:UIControlStateNormal];
+        refresh.titleLabel.font = [UIFont systemFontOfSize:15.0];
+        [refresh setTitle:@"点我刷新" forState:UIControlStateNormal];
+        [_errorView addSubview:refresh];
+        [refresh mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(@100);
+            make.height.equalTo(@30);
+            make.top.equalTo(msg.mas_bottom).offset(10);
+            make.centerX.equalTo(self->_errorView);
+        }];
+    }
+    return _errorView;
 }
 
 -(UITableView *)tableView
@@ -173,14 +164,7 @@
     }
     return _tableView;
 }
-///
--(NSArray *)dataArray
-{
-    if (!_dataArray) {
-        _dataArray = @[@"测试1",@"测试2",@"测试3"];
-    }
-    return _dataArray;
-}
+
 #pragma mark 显示日历
 -(void)switchYearAction
 {
@@ -195,7 +179,16 @@
     [yearButton setTitle:year forState:UIControlStateNormal];
     statusLabel.text = [NSString stringWithFormat:@"%@年巡查次数:%@",year,num];;
 }
-
+-(void)reloadData:(NSArray *)data
+{
+    if (data.count > 0) {
+        [self sendSubviewToBack:_errorView];
+        _dataArray = data;
+        [self.tableView reloadData];
+    }else{
+        [self bringSubviewToFront:_errorView];
+    }
+}
 #pragma mark tableView
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

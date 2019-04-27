@@ -19,6 +19,7 @@
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     [self.contentView addSubview:self.statusView];
     [self.statusView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@10);
@@ -54,8 +55,9 @@
             make.center.equalTo(self->_statusView);
         }];
         //竖线1
+        UIColor *lineColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1.0];
         UIView *top = [UIView new];
-        top.backgroundColor = [UIColor grayColor];
+        top.backgroundColor = lineColor;
         [_statusView addSubview:top];
         [top mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(@1);
@@ -66,7 +68,7 @@
         }];
         //竖线2
         UIView *bottom = [UIView new];
-        bottom.backgroundColor = [UIColor grayColor];
+        bottom.backgroundColor = lineColor;
         [_statusView addSubview:bottom];
         [bottom mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.equalTo(top);

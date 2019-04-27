@@ -18,5 +18,5 @@
 -(instancetype)initWith:(NSString *)title Block:(void(^)(void))showHandler;
 ///刷新状态
 -(void)reloadYear:(NSString *)year num:(NSString *)num;
-
+-(void)reloadData:(NSArray *)data;
 @end
