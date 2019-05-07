@@ -17,6 +17,7 @@
 		81E0716B227185FD00E3880B /* MasRecordHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E07167227185FC00E3880B /* MasRecordHeaderView.m */; };
 		81E0716C227185FD00E3880B /* MasCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E07169227185FD00E3880B /* MasCalendarView.m */; };
 		81E071702274288500E3880B /* MasRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E0716F2274288500E3880B /* MasRecordCell.m */; };
+		84D01E862278198C009DDF32 /* StoreResponsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D01E852278198C009DDF32 /* StoreResponsController.m */; };
 		D68D4151C0B9EE90EA3108AD /* Pods_MasPatrolUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0980048FC36F1B0972665932 /* Pods_MasPatrolUI.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,8 @@
 		81E07169227185FD00E3880B /* MasCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasCalendarView.m; sourceTree = "<group>"; };
 		81E0716E2274288500E3880B /* MasRecordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasRecordCell.h; sourceTree = "<group>"; };
 		81E0716F2274288500E3880B /* MasRecordCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasRecordCell.m; sourceTree = "<group>"; };
+		84D01E842278198C009DDF32 /* StoreResponsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreResponsController.h; sourceTree = "<group>"; };
+		84D01E852278198C009DDF32 /* StoreResponsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreResponsController.m; sourceTree = "<group>"; };
 		D52450050C978EB7550CDEA5 /* Pods-MasPatrolUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasPatrolUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MasPatrolUI/Pods-MasPatrolUI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +88,7 @@
 		81E0714D227185C000E3880B /* MasPatrolUI */ = {
 			isa = PBXGroup;
 			children = (
+				84D01E8322781967009DDF32 /* 主体责任 */,
 				81E0716D2271860200E3880B /* Record */,
 				81E0714E227185C000E3880B /* AppDelegate.h */,
 				81E0714F227185C000E3880B /* AppDelegate.m */,
@@ -112,6 +116,15 @@
 				81E0716F2274288500E3880B /* MasRecordCell.m */,
 			);
 			path = Record;
+			sourceTree = "<group>";
+		};
+		84D01E8322781967009DDF32 /* 主体责任 */ = {
+			isa = PBXGroup;
+			children = (
+				84D01E842278198C009DDF32 /* StoreResponsController.h */,
+				84D01E852278198C009DDF32 /* StoreResponsController.m */,
+			);
+			path = "主体责任";
 			sourceTree = "<group>";
 		};
 		FD7D2E7AEDECB70C5ECA6E78 /* Pods */ = {
@@ -240,6 +253,7 @@
 				81E0716C227185FD00E3880B /* MasCalendarView.m in Sources */,
 				81E0715E227185C400E3880B /* main.m in Sources */,
 				81E0716A227185FD00E3880B /* PatrolViewController.m in Sources */,
+				84D01E862278198C009DDF32 /* StoreResponsController.m in Sources */,
 				81E07150227185C000E3880B /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
