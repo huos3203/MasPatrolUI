@@ -7,5 +7,6 @@ target 'MasPatrolUI' do
 
   # Pods for MasPatrolUI
   pod 'Masonry'
+  pod 'JSONModel'
 
 end
