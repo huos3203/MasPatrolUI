@@ -56,8 +56,6 @@
     thirdLabel.text = third;
 }
 
-
-
 -(UILabel *)installView:(NSString *)text
 {
     UIView *view = [UIView new];
@@ -78,6 +76,26 @@
         make.centerX.equalTo(view);
         make.centerY.equalTo(view).offset(20);
     }];
+    if (self.stackView.arrangedSubviews.count == 1) {
+        UIView *left = [UIView new];
+        left.backgroundColor = [UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1.0];
+        [view addSubview:left];
+        [left mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(@1);
+            make.centerY.equalTo(view);
+            make.top.equalTo(@20);
+            make.left.equalTo(@0);
+        }];
+        UIView *right = [UIView new];
+        right.backgroundColor = [UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1.0];
+        [view addSubview:right];
+        [right mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(@1);
+            make.centerY.equalTo(view);
+            make.top.equalTo(@20);
+            make.right.equalTo(@0);
+        }];
+    }
     
     [self.stackView addArrangedSubview:view];
     return numLabel;

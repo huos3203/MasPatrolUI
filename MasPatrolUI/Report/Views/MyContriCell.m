@@ -9,7 +9,6 @@
 #import "MyContriCell.h"
 #import <Masonry/Masonry.h>
 #import "ReportTaskModel.h"
-#import "MyViewUtils.h"
 
 @implementation MyContriCell
 {
