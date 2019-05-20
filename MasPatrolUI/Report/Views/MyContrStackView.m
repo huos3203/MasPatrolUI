@@ -32,7 +32,6 @@
         make.edges.insets(pading);
     }];
     return self;
-    
 }
 
 -(void)drawRect:(CGRect)rect

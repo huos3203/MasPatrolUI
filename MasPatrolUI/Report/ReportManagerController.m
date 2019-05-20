@@ -9,6 +9,7 @@
 #import "ReportManagerController.h"
 #import <Masonry/Masonry.h>
 #import "ReportTaskListController.h"
+#import "MyContributionController.h"
 
 #pragma mark - cellView
 @interface ReportTCell : UITableViewCell
@@ -144,6 +145,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    MyContributionController *contri = [MyContributionController new];
+    [self presentViewController:contri animated:NO completion:nil];
+    return;
     ReportTaskListController *taskList = [ReportTaskListController new];
     [self presentViewController:taskList animated:NO completion:nil];
 }

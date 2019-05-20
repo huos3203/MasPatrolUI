@@ -23,18 +23,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    MyContrStackView *stack = [MyContrStackView new];
-    [self.view addSubview:stack];
-    [stack mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@100);
-        make.left.equalTo(@10);
-        make.right.equalTo(@-10);
-        make.top.equalTo(@60);
-    }];
-    [stack reloadData:@"19" second:@"23" third:@"5"];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(stack.mas_bottom).offset(8);
+        make.top.equalTo(self.view).offset(60);
         make.leading.trailing.equalTo(self.view);
         make.bottom.equalTo(self.view);
     }];

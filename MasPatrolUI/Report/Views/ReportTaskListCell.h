@@ -11,6 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 @class ReportTaskModel;
 @interface ReportTaskListCell : UITableViewCell
+@property (strong, nonatomic) UILabel *taskTypeLabel;
+@property (strong, nonatomic) UILabel *nameLabel;
+@property (strong, nonatomic) UILabel *addressLabel;
+@property (strong, nonatomic) UILabel *renLabel;
+@property (strong, nonatomic) UILabel *timeLabel;
 @property (strong, nonatomic) ReportTaskModel *model;
 @end
 
