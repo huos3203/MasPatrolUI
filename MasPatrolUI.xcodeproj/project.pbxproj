@@ -21,6 +21,9 @@
 		84E81EAC22923F3000E630BB /* ReportManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81EAB22923F3000E630BB /* ReportManagerController.m */; };
 		84E81F362292824F00E630BB /* ReportTaskListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F352292824F00E630BB /* ReportTaskListController.m */; };
 		84E81F3D22928DE800E630BB /* ReportTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F3C22928DE800E630BB /* ReportTaskModel.m */; };
+		84E81F412292A15B00E630BB /* ReportTaskListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F402292A15B00E630BB /* ReportTaskListCell.m */; };
+		84E81F442292A29D00E630BB /* MyContributionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F432292A29D00E630BB /* MyContributionController.m */; };
+		84E81F472292A32300E630BB /* MyContrStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F462292A32300E630BB /* MyContrStackView.m */; };
 		84FD8B372281644300BC2BE6 /* StoreSignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FD8B362281644300BC2BE6 /* StoreSignViewController.m */; };
 		D68D4151C0B9EE90EA3108AD /* Pods_MasPatrolUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0980048FC36F1B0972665932 /* Pods_MasPatrolUI.framework */; };
 /* End PBXBuildFile section */
@@ -54,6 +57,12 @@
 		84E81F352292824F00E630BB /* ReportTaskListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportTaskListController.m; sourceTree = "<group>"; };
 		84E81F3B22928DE800E630BB /* ReportTaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportTaskModel.h; sourceTree = "<group>"; };
 		84E81F3C22928DE800E630BB /* ReportTaskModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportTaskModel.m; sourceTree = "<group>"; };
+		84E81F3F2292A15B00E630BB /* ReportTaskListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportTaskListCell.h; sourceTree = "<group>"; };
+		84E81F402292A15B00E630BB /* ReportTaskListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportTaskListCell.m; sourceTree = "<group>"; };
+		84E81F422292A29D00E630BB /* MyContributionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyContributionController.h; sourceTree = "<group>"; };
+		84E81F432292A29D00E630BB /* MyContributionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyContributionController.m; sourceTree = "<group>"; };
+		84E81F452292A32300E630BB /* MyContrStackView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyContrStackView.h; sourceTree = "<group>"; };
+		84E81F462292A32300E630BB /* MyContrStackView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyContrStackView.m; sourceTree = "<group>"; };
 		84FD8B352281644300BC2BE6 /* StoreSignViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreSignViewController.h; sourceTree = "<group>"; };
 		84FD8B362281644300BC2BE6 /* StoreSignViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreSignViewController.m; sourceTree = "<group>"; };
 		D52450050C978EB7550CDEA5 /* Pods-MasPatrolUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasPatrolUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MasPatrolUI/Pods-MasPatrolUI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -145,11 +154,14 @@
 		84E81EA922923EDD00E630BB /* Report */ = {
 			isa = PBXGroup;
 			children = (
+				84E81F3E2292A12800E630BB /* View */,
 				84E81F3722928CCF00E630BB /* Models */,
 				84E81EAA22923F3000E630BB /* ReportManagerController.h */,
 				84E81EAB22923F3000E630BB /* ReportManagerController.m */,
 				84E81F342292824F00E630BB /* ReportTaskListController.h */,
 				84E81F352292824F00E630BB /* ReportTaskListController.m */,
+				84E81F422292A29D00E630BB /* MyContributionController.h */,
+				84E81F432292A29D00E630BB /* MyContributionController.m */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -161,6 +173,17 @@
 				84E81F3C22928DE800E630BB /* ReportTaskModel.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		84E81F3E2292A12800E630BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84E81F3F2292A15B00E630BB /* ReportTaskListCell.h */,
+				84E81F402292A15B00E630BB /* ReportTaskListCell.m */,
+				84E81F452292A32300E630BB /* MyContrStackView.h */,
+				84E81F462292A32300E630BB /* MyContrStackView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		FD7D2E7AEDECB70C5ECA6E78 /* Pods */ = {
@@ -288,12 +311,15 @@
 				81E0716B227185FD00E3880B /* MasRecordHeaderView.m in Sources */,
 				81E071702274288500E3880B /* MasRecordCell.m in Sources */,
 				81E07153227185C000E3880B /* ViewController.m in Sources */,
+				84E81F472292A32300E630BB /* MyContrStackView.m in Sources */,
 				84FD8B372281644300BC2BE6 /* StoreSignViewController.m in Sources */,
 				81E0716C227185FD00E3880B /* MasCalendarView.m in Sources */,
 				84E81F362292824F00E630BB /* ReportTaskListController.m in Sources */,
 				81E0715E227185C400E3880B /* main.m in Sources */,
 				81E0716A227185FD00E3880B /* PatrolViewController.m in Sources */,
 				84E81F3D22928DE800E630BB /* ReportTaskModel.m in Sources */,
+				84E81F442292A29D00E630BB /* MyContributionController.m in Sources */,
+				84E81F412292A15B00E630BB /* ReportTaskListCell.m in Sources */,
 				84D01E862278198C009DDF32 /* StoreResponsController.m in Sources */,
 				81E07150227185C000E3880B /* AppDelegate.m in Sources */,
 				84E81EAC22923F3000E630BB /* ReportManagerController.m in Sources */,
