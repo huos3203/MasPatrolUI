@@ -8,6 +8,7 @@
 
 #import "ReportManagerController.h"
 #import <Masonry/Masonry.h>
+#import "ReportTaskListController.h"
 
 #pragma mark - cellView
 @interface ReportTCell : UITableViewCell
@@ -139,6 +140,12 @@
         text = @"异常上报";
     }
     return [self createHeadView:text];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ReportTaskListController *taskList = [ReportTaskListController new];
+    [self presentViewController:taskList animated:NO completion:nil];
 }
 
 -(UIView *)createHeadView:(NSString *)text
