@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <Masonry/Masonry.h>
+#import "MyViewUtils.h"
+#import "ReportOpenAPI.h"
+#import "ReportTaskModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ReportTaskListController : UIViewController
-
+@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) NSArray<ReportTaskModel *> *dataArray;
+-(void)customBarButton;
 @end
 
 NS_ASSUME_NONNULL_END

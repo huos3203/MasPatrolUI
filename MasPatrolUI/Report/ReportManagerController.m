@@ -160,11 +160,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    MyContributionController *contri = [MyContributionController new];
-    [self.navigationController pushViewController:contri animated:NO];
-    return;
     ReportTaskListController *taskList = [ReportTaskListController new];
+    ReportTModel *model = self.dataArray[indexPath.section].reports[indexPath.row];
+    taskList.title = model.title;
     [self.navigationController pushViewController:taskList animated:NO];
 }
 

@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 #import "ReportManagerController.h"
-#import "ReportTaskListController.h"
+#import "TaskManagerController.h"
 #import "MyContributionController.h"
 
 @implementation ReportOpenAPI
@@ -32,7 +32,7 @@
         }
         case TaskManager:
         {
-            tovc = [ReportTaskListController new];
+            tovc = [TaskManagerController new];
             break;
         }
         default:

@@ -7,16 +7,10 @@
 //
 
 #import "ReportTaskListController.h"
-#import <Masonry/Masonry.h>
-#import "MyViewUtils.h"
-#import "ReportTaskModel.h"
 #import "ReportTaskListCell.h"
-#import "ReportOpenAPI.h"
-#import "MyContrStackView.h"
 
 @interface ReportTaskListController ()<UITableViewDelegate,UITableViewDataSource>
-@property (strong, nonatomic) UITableView *tableView;
-@property (strong, nonatomic) NSArray<ReportTaskModel *> *dataArray;
+
 @end
 
 @implementation ReportTaskListController
@@ -24,22 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).offset(60);
-        make.leading.trailing.equalTo(self.view);
-    }];
-    //按钮
-    UIButton *task = [UIButton new];
-    [task setTitle:@"任务管理" forState:UIControlStateNormal];
-    [task setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [task addTarget:self action:@selector(toReportManager) forControlEvents:UIControlEventAllTouchEvents];
-    [task setBackgroundColor: [UIColor colorWithRed:44/255.0 green:215/255.0 blue:115/255.0 alpha:1.0]];
-    [self.view addSubview:task];
-    [task mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.tableView.mas_bottom);
-        make.left.right.equalTo(@0);
-        make.bottom.equalTo(@0);
+        make.size.equalTo(self.view);
+        make.center.equalTo(self.view);
     }];
     
     [self customBarButton];
@@ -47,19 +30,12 @@
 
 -(void)customBarButton
 {
-    self.title = @"精确治理";
     UIButton *btn = [UIButton new];
     btn.backgroundColor = [UIColor redColor];
-    UIButton *contribtn = [UIButton new];
-    contribtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    [contribtn setTitle:@"我的贡献" forState:UIControlStateNormal];
-    [contribtn setTitleColor:[UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0] forState:UIControlStateNormal];
     UIImage *btnimg = [UIImage imageNamed:@"GBCheckUpResource.bundle/whpoint.tiff"];
     [btn setImage:btnimg forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(btnBackClick) forControlEvents:UIControlEventTouchUpInside];
-    [contribtn addTarget:self action:@selector(contriInfo) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [MyViewUtils createBarBy:btn];
-    self.navigationItem.rightBarButtonItem = [MyViewUtils createBarBy:contribtn];
 }
 
 #pragma mark - TableView
@@ -84,14 +60,7 @@
 {
     [self.navigationController dismissViewControllerAnimated:NO completion:nil];
 }
--(void)contriInfo
-{
-    [ReportOpenAPI open:MyContriInfo from:self];
-}
--(void)toReportManager
-{
-    [ReportOpenAPI open:ReportManager from:self.navigationController];
-}
+
 
 #pragma mark - getter
 -(UITableView *)tableView
