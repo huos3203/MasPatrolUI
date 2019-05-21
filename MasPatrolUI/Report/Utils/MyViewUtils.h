@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MyViewUtils : NSObject
 +(NSMutableAttributedString *)installAtrribute:(NSString *)first second:(NSString *)second;
 +(void)maskLayer:(UIView *)view;
++(UIBarButtonItem *)createBarBy:(UIButton *)btn;
 @end
 
 NS_ASSUME_NONNULL_END

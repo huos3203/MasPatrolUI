@@ -27,6 +27,7 @@
 		84E81F4A2292B4C000E630BB /* MyContriCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F492292B4C000E630BB /* MyContriCell.m */; };
 		84E81F4E2292B58800E630BB /* MyViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F4D2292B58800E630BB /* MyViewUtils.m */; };
 		84E81F512292BD3200E630BB /* MyContriModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F502292BD3200E630BB /* MyContriModel.m */; };
+		84E81F542293E8AF00E630BB /* ReportOpenAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F532293E8AF00E630BB /* ReportOpenAPI.m */; };
 		84FD8B372281644300BC2BE6 /* StoreSignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FD8B362281644300BC2BE6 /* StoreSignViewController.m */; };
 		D68D4151C0B9EE90EA3108AD /* Pods_MasPatrolUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0980048FC36F1B0972665932 /* Pods_MasPatrolUI.framework */; };
 /* End PBXBuildFile section */
@@ -72,6 +73,8 @@
 		84E81F4D2292B58800E630BB /* MyViewUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyViewUtils.m; sourceTree = "<group>"; };
 		84E81F4F2292BD3200E630BB /* MyContriModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyContriModel.h; sourceTree = "<group>"; };
 		84E81F502292BD3200E630BB /* MyContriModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyContriModel.m; sourceTree = "<group>"; };
+		84E81F522293E8AF00E630BB /* ReportOpenAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportOpenAPI.h; sourceTree = "<group>"; };
+		84E81F532293E8AF00E630BB /* ReportOpenAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportOpenAPI.m; sourceTree = "<group>"; };
 		84FD8B352281644300BC2BE6 /* StoreSignViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreSignViewController.h; sourceTree = "<group>"; };
 		84FD8B362281644300BC2BE6 /* StoreSignViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreSignViewController.m; sourceTree = "<group>"; };
 		D52450050C978EB7550CDEA5 /* Pods-MasPatrolUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasPatrolUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MasPatrolUI/Pods-MasPatrolUI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 		84E81EA922923EDD00E630BB /* Report */ = {
 			isa = PBXGroup;
 			children = (
+				84E81F522293E8AF00E630BB /* ReportOpenAPI.h */,
+				84E81F532293E8AF00E630BB /* ReportOpenAPI.m */,
 				84E81F4B2292B56200E630BB /* Utils */,
 				84E81F3E2292A12800E630BB /* Views */,
 				84E81F3722928CCF00E630BB /* Models */,
@@ -336,6 +341,7 @@
 				84E81F512292BD3200E630BB /* MyContriModel.m in Sources */,
 				81E07153227185C000E3880B /* ViewController.m in Sources */,
 				84E81F4E2292B58800E630BB /* MyViewUtils.m in Sources */,
+				84E81F542293E8AF00E630BB /* ReportOpenAPI.m in Sources */,
 				84E81F472292A32300E630BB /* MyContrStackView.m in Sources */,
 				84FD8B372281644300BC2BE6 /* StoreSignViewController.m in Sources */,
 				81E0716C227185FD00E3880B /* MasCalendarView.m in Sources */,

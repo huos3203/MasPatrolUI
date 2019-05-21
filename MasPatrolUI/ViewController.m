@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "ReportOpenAPI.h"
 @interface ViewController ()
 
 @end
@@ -19,5 +19,9 @@
     // Do any additional setup after loading the view.
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [ReportOpenAPI open:TaskManager from:self];
+}
 
 @end

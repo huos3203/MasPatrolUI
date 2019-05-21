@@ -10,7 +10,14 @@
 
 @implementation MyViewUtils
 #pragma mark - 辅助方法
-
++(UIBarButtonItem *)createBarBy:(UIButton *)btn
+{
+    UIView *butView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, 25)];
+    [butView addSubview:btn];
+    btn.frame = CGRectMake(0, 0, 60, 25);
+    btn.titleLabel.font = [UIFont systemFontOfSize:14];
+    return [[UIBarButtonItem alloc] initWithCustomView:butView];
+}
 +(NSMutableAttributedString *)installAtrribute:(NSString *)first second:(NSString *)second
 {
     NSString *text = [NSString stringWithFormat:@"%@%@",first,second];

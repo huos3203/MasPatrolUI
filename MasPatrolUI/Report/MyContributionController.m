@@ -12,6 +12,7 @@
 #import "ReportTaskModel.h"
 #import "MyContrStackView.h"
 #import <Masonry/Masonry.h>
+#import "MyViewUtils.h"
 @interface MyContributionController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) MyContriModel *myContriModel;
@@ -21,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
     MyContrStackView *stack = [MyContrStackView new];
     [self.view addSubview:stack];
@@ -28,7 +30,7 @@
         make.height.equalTo(@100);
         make.left.equalTo(@10);
         make.right.equalTo(@-10);
-        make.top.equalTo(@60);
+        make.top.equalTo(self.view).offset(100);
     }];
     [stack reloadData:@"19" second:@"23" third:@"5"];
     [self.view addSubview:self.tableView];
@@ -37,9 +39,21 @@
         make.leading.trailing.equalTo(self.view);
         make.bottom.equalTo(self.view);
     }];
+    self.title = @"我的贡献";
+    UIButton *btn = [UIButton new];
+    [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [btn setTitle:@"❮" forState:UIControlStateNormal];
+    btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [btn addTarget:self action:@selector(backBarAction) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [MyViewUtils createBarBy:btn];
 }
 
 
+#pragma mark - UIAction
+-(void)backBarAction
+{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
 #pragma mark - TableView
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

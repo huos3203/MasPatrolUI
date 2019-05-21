@@ -10,8 +10,6 @@
 #import "PatrolViewController.h"
 #import "StoreResponsController.h"
 #import "StoreSignViewController.h"
-//上报
-#import "ReportManagerController.h"
 @interface AppDelegate ()
 
 @end
@@ -21,10 +19,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [ReportManagerController new];
-    [self.window makeKeyAndVisible];
+//    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    self.window.rootViewController = [ReportManagerController new];
+//    [self.window makeKeyAndVisible];
     return YES;
 }
 

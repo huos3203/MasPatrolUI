@@ -10,6 +10,7 @@
 #import <Masonry/Masonry.h>
 #import "ReportTaskListController.h"
 #import "MyContributionController.h"
+#import "MyViewUtils.h"
 
 #pragma mark - cellView
 @interface ReportTCell : UITableViewCell
@@ -104,6 +105,20 @@
         make.center.equalTo(self.view);
         make.size.equalTo(self.view);
     }];
+    self.title = @"上报管理";
+    UIButton *btn = [UIButton new];
+    [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [btn setTitle:@"❮" forState:UIControlStateNormal];
+    btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [btn addTarget:self action:@selector(backBarAction) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [MyViewUtils createBarBy:btn];
+}
+
+
+#pragma mark - UIAction
+-(void)backBarAction
+{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - tableview
@@ -145,11 +160,12 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     MyContributionController *contri = [MyContributionController new];
-    [self presentViewController:contri animated:NO completion:nil];
+    [self.navigationController pushViewController:contri animated:NO];
     return;
     ReportTaskListController *taskList = [ReportTaskListController new];
-    [self presentViewController:taskList animated:NO completion:nil];
+    [self.navigationController pushViewController:taskList animated:NO];
 }
 
 -(UIView *)createHeadView:(NSString *)text
