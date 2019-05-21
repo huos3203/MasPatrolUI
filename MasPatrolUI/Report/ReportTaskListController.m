@@ -8,6 +8,7 @@
 
 #import "ReportTaskListController.h"
 #import "ReportTaskListCell.h"
+#import "ReportedDetailController.h"
 
 @interface ReportTaskListController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -54,6 +55,11 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ReportedDetailController *detail = [ReportedDetailController new];
+    [self.navigationController pushViewController:detail animated:YES];
+}
 
 #pragma mark - UIAction
 -(void)btnBackClick

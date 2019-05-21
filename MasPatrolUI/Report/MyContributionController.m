@@ -12,6 +12,8 @@
 #import "ReportTaskModel.h"
 #import "MyContrStackView.h"
 #import <Masonry/Masonry.h>
+#import "ReportedDetailController.h"
+
 #import "MyViewUtils.h"
 @interface MyContributionController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) UITableView *tableView;
@@ -68,6 +70,11 @@
     MyContriCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyContriCell"];
     cell.model = self.myContriModel.Questions[indexPath.row];
     return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ReportedDetailController *detail = [ReportedDetailController new];
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
 #pragma mark - getter
