@@ -64,7 +64,7 @@
     
     [self.view addSubview:self.detailView];
     [self.detailView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(line1.mas_bottom).offset(88);
+        make.top.equalTo(line1.mas_bottom).offset(8);
         make.left.equalTo(@8);
         make.right.equalTo(@-8);
     }];
@@ -189,7 +189,7 @@
     UIView *cell1 = [self secondCell:@"负责人"];
     UIView *cell2 = [self secondCell:@"任务时限"];
     UIView *line = [UIView new];
-    line.backgroundColor = [UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1.0];
+    line.backgroundColor =[UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1.0];
     [view addSubview:cell1];
     [view addSubview:cell2];
     [view addSubview:line];
@@ -199,13 +199,14 @@
     }];
     [line mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@0.5);
-        make.left.right.equalTo(view);
-        make.top.equalTo(cell1.mas_bottom).offset(10);
+        make.left.equalTo(view).offset(-8);
+        make.right.equalTo(view).offset(8);
+        make.top.equalTo(cell1.mas_bottom).offset(8);
     }];
     
     [cell2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(view);
-        make.top.equalTo(line.mas_bottom).offset(10);
+        make.top.equalTo(line.mas_bottom).offset(8);
         make.bottom.equalTo(view).offset(-10);
     }];
     return view;
@@ -221,18 +222,20 @@
     text.numberOfLines = 0;
     text.textColor = [UIColor colorWithRed:47/255.0 green:56/255.0 blue:86/255.0 alpha:1.0];
     text.font = [UIFont systemFontOfSize:16.0];
-    text.text = @"道路部门道路部门";
+    text.text = @"道路部门道路部门道路部门";
     UIView *view = [UIView new];
     [view addSubview:label];
     [view addSubview:text];
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.equalTo(@8);
+        make.left.equalTo(@8);
+        make.top.equalTo(text.mas_top);
     }];
+    [text setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
     [text mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(view).offset(8);
+        make.right.equalTo(view);
+        make.centerY.equalTo(view);
         make.left.equalTo(label.mas_right).offset(8);
-        make.right.equalTo(view).offset(8);
-        make.top.equalTo(label.mas_top);
-        make.bottom.equalTo(view.mas_bottom);
     }];
     
     return view;
@@ -275,17 +278,18 @@
     [detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@8);
         make.right.equalTo(@-8);
-        make.top.equalTo(view.mas_bottom).offset(8);
+        make.top.equalTo(view).offset(8);
     }];
     [stackView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@8);
         make.right.equalTo(@-8);
         make.top.equalTo(detailLabel.mas_bottom).offset(8);
-        make.bottom.equalTo(view);
     }];
     [line mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@0.5);
-        make.bottom.left.right.equalTo(view);
+        make.bottom.equalTo(view);
+        make.left.equalTo(view).offset(-8);
+        make.right.equalTo(view).offset(8);
         make.top.equalTo(stackView.mas_bottom).offset(8);
     }];
     
