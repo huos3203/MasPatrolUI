@@ -11,7 +11,7 @@
 #import "MyViewUtils.h"
 #import "ReportDetailView.h"
 @interface ReportedDetailController ()
-
+@property (strong, nonatomic) UIScrollView *scrollView;
 @end
 
 @implementation ReportedDetailController
@@ -23,17 +23,27 @@
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
     [self customBarButton];
-    _detailView = [ReportDetailView new];
-    [self.view addSubview:_detailView];
-    __weak typeof(self) weakSelf = self;
-    [_detailView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@70);
-        make.left.right.equalTo(weakSelf.view);
-    }];
+    [self installView];
     [self reloadViewData];
+    
 }
 
 #pragma mark - View
+-(void)installView
+{
+    __weak typeof(self) weakSelf = self;
+    [self.view addSubview:self.scrollView];
+    [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+         make.edges.equalTo(self.view);
+    }];
+    _detailView = [ReportDetailView new];
+    [_scrollView addSubview:_detailView];
+    [_detailView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(self->_scrollView.contentSize);
+        make.center.equalTo(self->_scrollView);
+    }];
+}
+
 
 -(void)reloadViewData
 {
@@ -76,5 +86,14 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+
+-(UIScrollView *)scrollView
+{
+    if (!_scrollView) {
+        _scrollView = [UIScrollView new];
+        _scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height - 60);
+    }
+    return _scrollView;
+}
 
 @end
