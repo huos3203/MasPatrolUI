@@ -37,13 +37,11 @@
 {
     self = [super init];
     [self installView];
+    [self performSelector:@selector(maskLayer) withObject:nil afterDelay:.5];
     return self;
 }
-
--(void)drawRect:(CGRect)rect
-{
+-(void)maskLayer{
     [MyViewUtils maskLayer:_reportType];
-    [super drawRect:rect];
 }
 
 -(void)reloadData:(ReportDetailViewModel *)model

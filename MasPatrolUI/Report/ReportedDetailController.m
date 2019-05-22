@@ -43,14 +43,14 @@
 -(void)reloadDetailViewData
 {
     ReportDetailViewModel *model = [ReportDetailViewModel new];
-    model.name = @"南北方向施工";
+    model.name = @"南北方向施工南北方向施工";
     model.status= @"待认领";
     model.preImgUrl = @"https://upload.jianshu.io/users/upload_avatars/2456771/d9dc05b91093.jpg";
     model.type = @"道路阻塞";
     model.time = @"2019.01.10";
     model.address = @"北京市海淀区上地街道上地东路上地街道上地东路";
-    model.detailText = nil;// @"描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字";
-    model.detailImgUrl = nil;
+    model.detailText = @"描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字";
+    model.detailImgUrl = @"https://upload.jianshu.io/users/upload_avatars/2456771/d9dc05b91093.jpg";
     model.ren = @"道路部门道路部门道路部门";
     model.shixian = @"2019.01.01-2019.02.01";
     [_detailView reloadData:model];
