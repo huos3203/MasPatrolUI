@@ -70,7 +70,6 @@
     title.font = [UIFont boldSystemFontOfSize:16.0];
     title.text = @"检查结果拍照";
     [self addSubview:title];
-    [self addSubview:self.collectionView];
     [title mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.equalTo(@8);
         make.right.equalTo(@-8);
@@ -84,6 +83,7 @@
         make.bottom.left.right.equalTo(@0);
     }];
     
+    [self addSubview:self.collectionView];
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(title.mas_bottom).offset(8);
         make.left.equalTo(@8);
