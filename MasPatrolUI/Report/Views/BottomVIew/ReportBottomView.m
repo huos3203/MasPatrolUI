@@ -13,6 +13,18 @@
 #import <Masonry/Masonry.h>
 
 @implementation STypeBodyModel
+-(instancetype)initForInvalidNote:(NSString *)note
+                              who:(NSString *)pepleName
+                          address:(NSString *)address
+                             time:(NSString *)time
+{
+    self = [super init];
+    self.note = note;
+    self.pepleName = pepleName;
+    self.address = address;
+    self.time = time;
+    return self;
+}
 -(NSMutableArray<ReportCameraModel *> *)cameraArray
 {
     if (!_cameraArray) {
@@ -43,6 +55,8 @@
     _typeArray = typeArray;
     _bodyArray = bodyArray;
     [self installView];
+    _storeTypeView.dataArray = _typeArray;
+    [_storeTypeView reloadData];
     return self;
 }
 
@@ -97,9 +111,6 @@
     
     //备注
     UIView *noteView = [self noteView];
-//    [noteView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.height.equalTo(@90);
-//    }];
     [root addArrangedSubview:noteView];
     
     //处理人
@@ -118,7 +129,7 @@
     _note.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
     _note.backgroundColor = [UIColor whiteColor];
     [_note setTitleColor:[UIColor colorWithRed:47/255.0 green:56/255.0 blue:86/255.0 alpha:1.0] forState:UIControlStateNormal];
-    _noteline.hidden = YES;
+    _noteline.hidden = NO;
 }
 -(UIView *)noteView
 {
@@ -145,6 +156,7 @@
     
     
     UIView *line = [UIView new];
+    line.hidden = YES;
     _noteline = line;
     line.backgroundColor = [UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1.0];
     [view addSubview:line];
@@ -229,9 +241,6 @@
     if (!model) {
         return;
     }
-   
-    _storeTypeView.dataArray = _typeArray;
-    [_storeTypeView reloadData];
     _cameraView.dataArray = model.cameraArray;
     [_cameraView reloadData];
     

@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height - 60 - 44);
+//    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height - 60 - 44);
     // Do any additional setup after loading the view.
     ReportBottomView *bottomView = [[ReportBottomView alloc] initWith:self.typeArray and:self.bodyArray];
     [bottomView show:Task_Doing forStoreType:2];
@@ -48,7 +48,7 @@
         make.left.right.bottom.equalTo(weakSelf.view);
         make.height.equalTo(@44);
     }];
-    self.scrollView_mas_Bottom.offset(-44);
+    self.scrollView_mas_Bottom.offset(-30);
 }
 
 -(void)commitAction
@@ -65,7 +65,15 @@
             StoreTypeModel *model = [StoreTypeModel new];
             model.typeId = [NSString stringWithFormat:@"%d",i];
             model.title = @"业态一";
-            model.flag = SType_Completed;
+            if (i == 1) {
+                model.flag = SType_CantDo;
+            }else if (i == 2) {
+                model.flag = SType_CanDo;
+            }else if(i == 3){
+                model.flag = SType_Completed;
+            }else{
+               model.flag = SType_CanDo;
+            }
             [_typeArray addObject:model];
         }
     }

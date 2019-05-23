@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class StoreTypeModel;
 @class ReportCameraModel;
 @interface STypeBodyModel : NSObject
+-(instancetype)initForInvalidNote:(NSString *)note who:(NSString *)pepleName address:(NSString *)address time:(NSString *)time;
 @property (strong, nonatomic) NSString *typeId;
 @property (strong, nonatomic) NSMutableArray<ReportCameraModel *> *cameraArray;
 @property (strong, nonatomic) NSString *pepleName;

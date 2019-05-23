@@ -39,7 +39,7 @@
         [selectLine mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView).offset(10);
             make.right.equalTo(self.contentView).offset(-6);
-            make.bottom.equalTo(self.contentView.mas_bottom).offset(8);
+            make.bottom.equalTo(self.contentView).offset(5);
             make.height.equalTo(@2);
         }];
         
@@ -48,6 +48,7 @@
 }
 -(void)setModel:(StoreTypeModel *)model
 {
+    _model = model;
     tagLabel.text = [NSString stringWithFormat:@"  %@   ",model.title];
     tagLabel.textColor = self.textColor;
 }
@@ -66,7 +67,7 @@
 }
 
 - (UIColor *)textColor{
-    UIColor *color = [UIColor blackColor];
+    UIColor *color;
     switch (self.model.flag) {
         case SType_CanDo:
             color = [UIColor colorWithRed:47/255.0 green:56/255.0 blue:86/255.0 alpha:1.0];

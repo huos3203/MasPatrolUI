@@ -91,7 +91,7 @@
 {
     if (!_scrollView) {
         _scrollView = [UIScrollView new];
-        _scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height - 60);
+        _scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height - 44);
     }
     return _scrollView;
 }

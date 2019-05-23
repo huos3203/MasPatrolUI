@@ -86,6 +86,7 @@
 
 -(void)setModel:(ReportTaskModel *)model
 {
+    _model = model;
     _taskTypeLabel.text = model.ClassifName;
     _nameLabel.text = model.EventName;
     _addressLabel.attributedText = [MyViewUtils installAtrribute:@"地址：" second:model.QuestionFixedLocation];

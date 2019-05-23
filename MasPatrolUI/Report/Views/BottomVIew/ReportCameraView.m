@@ -48,6 +48,7 @@
 
 -(void)setModel:(ReportCameraModel *)model
 {
+    _model = model;
     _delBut.hidden = NO;
     if (model.type != Cell_CanDel) {
         _delBut.hidden = YES;

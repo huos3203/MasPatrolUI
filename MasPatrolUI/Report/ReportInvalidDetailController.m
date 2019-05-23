@@ -9,7 +9,7 @@
 #import "ReportInvalidDetailController.h"
 #import "ReportBottomView.h"
 @interface ReportInvalidDetailController ()
-
+@property (strong, nonatomic) NSMutableArray<STypeBodyModel *> *bodyArray;
 @end
 
 @implementation ReportInvalidDetailController
@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    ReportBottomView *bottomView = [ReportBottomView new];
+    ReportBottomView *bottomView = [[ReportBottomView alloc] initWith:@[] and:self.bodyArray];
     [bottomView show:Task_Invalid forStoreType:0];
     [self.scrollView addSubview:bottomView];
     [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -25,6 +25,18 @@
         make.top.equalTo(self.line.mas_bottom).offset(8);
     }];
 }
-
+-(NSMutableArray<STypeBodyModel *> *)bodyArray
+{
+    if (!_bodyArray) {
+        _bodyArray = [NSMutableArray new];
+        NSString *note = @"timetimetimetimetimetimetimetime";
+        NSString *who = @"whohow";
+        NSString *address = @"addressaddress";
+        NSString *time = @"timetime";
+        STypeBodyModel *body = [[STypeBodyModel alloc] initForInvalidNote:note who:who address:address time:time];
+        [_bodyArray addObject:body];
+    }
+    return _bodyArray ;
+}
 
 @end
