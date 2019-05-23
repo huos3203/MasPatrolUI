@@ -7,11 +7,9 @@
 //
 
 #import "ReportedDetailController.h"
-#import <Masonry/Masonry.h>
 #import "MyViewUtils.h"
 #import "ReportDetailView.h"
 @interface ReportedDetailController ()
-@property (strong, nonatomic) UIScrollView *scrollView;
 @end
 
 @implementation ReportedDetailController
@@ -37,6 +35,7 @@
          make.edges.equalTo(self.view);
     }];
     _detailView = [ReportDetailView new];
+    self.line = _detailView.line;
     [_scrollView addSubview:_detailView];
     [_detailView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(self->_scrollView.contentSize);

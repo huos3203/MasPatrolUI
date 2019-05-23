@@ -31,6 +31,11 @@
 		84E81F5A2293FF5900E630BB /* TaskManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F592293FF5900E630BB /* TaskManagerController.m */; };
 		84E81F5D229408C800E630BB /* ReportedDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F5C229408C800E630BB /* ReportedDetailController.m */; };
 		84E81F60229546AF00E630BB /* ReportDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F5F229546AF00E630BB /* ReportDetailView.m */; };
+		84E81F632296362E00E630BB /* ReportedToDoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F622296362E00E630BB /* ReportedToDoController.m */; };
+		84E81F662296450B00E630BB /* ReportInvalidDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F652296450B00E630BB /* ReportInvalidDetailController.m */; };
+		84E81F6A229648CD00E630BB /* StoreTypeColView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F69229648CD00E630BB /* StoreTypeColView.m */; };
+		84E81F6D22964ABF00E630BB /* ReportCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F6C22964ABF00E630BB /* ReportCameraView.m */; };
+		84E81F7022964B3A00E630BB /* ReportBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F6F22964B3A00E630BB /* ReportBottomView.m */; };
 		84FD8B372281644300BC2BE6 /* StoreSignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FD8B362281644300BC2BE6 /* StoreSignViewController.m */; };
 		D68D4151C0B9EE90EA3108AD /* Pods_MasPatrolUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0980048FC36F1B0972665932 /* Pods_MasPatrolUI.framework */; };
 /* End PBXBuildFile section */
@@ -84,6 +89,16 @@
 		84E81F5C229408C800E630BB /* ReportedDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportedDetailController.m; sourceTree = "<group>"; };
 		84E81F5E229546AF00E630BB /* ReportDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportDetailView.h; sourceTree = "<group>"; };
 		84E81F5F229546AF00E630BB /* ReportDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportDetailView.m; sourceTree = "<group>"; };
+		84E81F612296362E00E630BB /* ReportedToDoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportedToDoController.h; sourceTree = "<group>"; };
+		84E81F622296362E00E630BB /* ReportedToDoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportedToDoController.m; sourceTree = "<group>"; };
+		84E81F642296450B00E630BB /* ReportInvalidDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportInvalidDetailController.h; sourceTree = "<group>"; };
+		84E81F652296450B00E630BB /* ReportInvalidDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportInvalidDetailController.m; sourceTree = "<group>"; };
+		84E81F68229648CD00E630BB /* StoreTypeColView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreTypeColView.h; sourceTree = "<group>"; };
+		84E81F69229648CD00E630BB /* StoreTypeColView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreTypeColView.m; sourceTree = "<group>"; };
+		84E81F6B22964ABF00E630BB /* ReportCameraView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportCameraView.h; sourceTree = "<group>"; };
+		84E81F6C22964ABF00E630BB /* ReportCameraView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportCameraView.m; sourceTree = "<group>"; };
+		84E81F6E22964B3A00E630BB /* ReportBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportBottomView.h; sourceTree = "<group>"; };
+		84E81F6F22964B3A00E630BB /* ReportBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportBottomView.m; sourceTree = "<group>"; };
 		84FD8B352281644300BC2BE6 /* StoreSignViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreSignViewController.h; sourceTree = "<group>"; };
 		84FD8B362281644300BC2BE6 /* StoreSignViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreSignViewController.m; sourceTree = "<group>"; };
 		D52450050C978EB7550CDEA5 /* Pods-MasPatrolUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasPatrolUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MasPatrolUI/Pods-MasPatrolUI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -190,6 +205,10 @@
 				84E81F432292A29D00E630BB /* MyContributionController.m */,
 				84E81F5B229408C800E630BB /* ReportedDetailController.h */,
 				84E81F5C229408C800E630BB /* ReportedDetailController.m */,
+				84E81F612296362E00E630BB /* ReportedToDoController.h */,
+				84E81F622296362E00E630BB /* ReportedToDoController.m */,
+				84E81F642296450B00E630BB /* ReportInvalidDetailController.h */,
+				84E81F652296450B00E630BB /* ReportInvalidDetailController.m */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -208,6 +227,7 @@
 		84E81F3E2292A12800E630BB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				84E81F672296486800E630BB /* BottomVIew */,
 				84E81F482292B4C000E630BB /* MyContriCell.h */,
 				84E81F492292B4C000E630BB /* MyContriCell.m */,
 				84E81F3F2292A15B00E630BB /* ReportTaskListCell.h */,
@@ -227,6 +247,19 @@
 				84E81F4D2292B58800E630BB /* MyViewUtils.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		84E81F672296486800E630BB /* BottomVIew */ = {
+			isa = PBXGroup;
+			children = (
+				84E81F6E22964B3A00E630BB /* ReportBottomView.h */,
+				84E81F6F22964B3A00E630BB /* ReportBottomView.m */,
+				84E81F68229648CD00E630BB /* StoreTypeColView.h */,
+				84E81F69229648CD00E630BB /* StoreTypeColView.m */,
+				84E81F6B22964ABF00E630BB /* ReportCameraView.h */,
+				84E81F6C22964ABF00E630BB /* ReportCameraView.m */,
+			);
+			path = BottomVIew;
 			sourceTree = "<group>";
 		};
 		FD7D2E7AEDECB70C5ECA6E78 /* Pods */ = {
@@ -364,14 +397,19 @@
 				84E81F472292A32300E630BB /* MyContrStackView.m in Sources */,
 				84FD8B372281644300BC2BE6 /* StoreSignViewController.m in Sources */,
 				84E81F5D229408C800E630BB /* ReportedDetailController.m in Sources */,
+				84E81F6D22964ABF00E630BB /* ReportCameraView.m in Sources */,
+				84E81F6A229648CD00E630BB /* StoreTypeColView.m in Sources */,
 				81E0716C227185FD00E3880B /* MasCalendarView.m in Sources */,
+				84E81F7022964B3A00E630BB /* ReportBottomView.m in Sources */,
 				84E81F362292824F00E630BB /* ReportTaskListController.m in Sources */,
 				81E0715E227185C400E3880B /* main.m in Sources */,
 				81E0716A227185FD00E3880B /* PatrolViewController.m in Sources */,
+				84E81F632296362E00E630BB /* ReportedToDoController.m in Sources */,
 				84E81F3D22928DE800E630BB /* ReportTaskModel.m in Sources */,
 				84E81F442292A29D00E630BB /* MyContributionController.m in Sources */,
 				84E81F412292A15B00E630BB /* ReportTaskListCell.m in Sources */,
 				84D01E862278198C009DDF32 /* StoreResponsController.m in Sources */,
+				84E81F662296450B00E630BB /* ReportInvalidDetailController.m in Sources */,
 				81E07150227185C000E3880B /* AppDelegate.m in Sources */,
 				84E81F4A2292B4C000E630BB /* MyContriCell.m in Sources */,
 				84E81EAC22923F3000E630BB /* ReportManagerController.m in Sources */,

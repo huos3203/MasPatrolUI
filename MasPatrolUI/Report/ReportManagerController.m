@@ -8,6 +8,7 @@
 
 #import "ReportManagerController.h"
 #import <Masonry/Masonry.h>
+#import "ReportedToDoController.h"
 #import "ReportTaskListController.h"
 #import "MyContributionController.h"
 #import "MyViewUtils.h"
@@ -163,6 +164,7 @@
     ReportTaskListController *taskList = [ReportTaskListController new];
     ReportTModel *model = self.dataArray[indexPath.section].reports[indexPath.row];
     taskList.title = model.title;
+    taskList.flag = Task_TODO;
     [self.navigationController pushViewController:taskList animated:NO];
 }
 

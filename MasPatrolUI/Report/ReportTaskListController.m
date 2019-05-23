@@ -9,7 +9,8 @@
 #import "ReportTaskListController.h"
 #import "ReportTaskListCell.h"
 #import "ReportedDetailController.h"
-
+#import "ReportedToDoController.h"
+#import "ReportInvalidDetailController.h"
 @interface ReportTaskListController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -57,8 +58,37 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ReportedDetailController *detail = [ReportedDetailController new];
-    [self.navigationController pushViewController:detail animated:YES];
+    UIViewController *taskVC;
+    _flag = Task_Invalid;
+    switch (_flag) {
+        case Task_TODO:
+        {
+            ReportedToDoController *todo = [ReportedToDoController new];
+            taskVC = todo;
+            break;
+        }
+        case Task_Done:
+        {
+            ReportedDetailController *detail = [ReportedDetailController new];
+            taskVC = detail;
+            break;
+        }
+        case Task_TimeOut:
+        {
+            ReportedDetailController *detail = [ReportedDetailController new];
+            taskVC = detail;
+            break;
+        }
+        case Task_Invalid:
+        {
+            ReportInvalidDetailController *invalid = [ReportInvalidDetailController new];
+            taskVC = invalid;
+            break;
+        }
+        default:
+            break;
+    }
+    [self.navigationController pushViewController:taskVC animated:NO];
 }
 
 #pragma mark - UIAction

@@ -14,6 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ReportTaskListController : UIViewController
+@property (assign, nonatomic) TaskFlagType flag;
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) NSArray<ReportTaskModel *> *dataArray;
 -(void)customBarButton;

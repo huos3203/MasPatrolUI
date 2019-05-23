@@ -43,7 +43,7 @@
 -(void)maskLayer{
     [MyViewUtils maskLayer:_reportType];
 }
-
+#pragma mark - API
 -(void)reloadData:(ReportDetailViewModel *)model
 {
     _reportType.text = model.type;
@@ -71,6 +71,7 @@
     }
 }
 
+#pragma mark - UI
 -(void)installView
 {
     //上报信息
@@ -97,6 +98,7 @@
         make.right.equalTo(@-8);
     }];
     UIView *line2 = [UIView new];
+    self.line = line2;
     line2.backgroundColor = [UIColor colorWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1.0];
     [self addSubview:line2];
     [line2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -214,8 +216,8 @@
     UIView *view = [UIView new];
     UIView *cell1 = [UIView new];
     UIView *cell2 = [UIView new];
-    _renLabel = [self secondCell:@"负责人" for:cell1];
-    _shixianLabel = [self secondCell:@"任务时限" for:cell2];
+    _renLabel = [MyViewUtils secondCell:@"负责人" for:cell1];
+    _shixianLabel = [MyViewUtils secondCell:@"任务时限" for:cell2];
     UIView *line = [UIView new];
     line.backgroundColor =[UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1.0];
     [view addSubview:cell1];
@@ -238,33 +240,6 @@
         make.bottom.equalTo(view).offset(-10);
     }];
     return view;
-}
-
--(UILabel *)secondCell:(NSString *)name for:(UIView *)view
-{
-    UILabel *label = [UILabel new];
-    label.textColor = [UIColor colorWithRed:47/255.0 green:56/255.0 blue:86/255.0 alpha:1.0];
-    label.font = [UIFont boldSystemFontOfSize:16.0];
-    label.text = name;
-    UILabel *text = [UILabel new];
-    text.numberOfLines = 0;
-    text.textColor = [UIColor colorWithRed:47/255.0 green:56/255.0 blue:86/255.0 alpha:1.0];
-    text.font = [UIFont systemFontOfSize:16.0];
-    [view addSubview:label];
-    [view addSubview:text];
-    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@8);
-        make.top.equalTo(text.mas_top);
-    }];
-    [text setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
-    [text mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(view).offset(8);
-        make.right.equalTo(view);
-        make.centerY.equalTo(view);
-        make.left.equalTo(label.mas_right).offset(8);
-    }];
-    
-    return text;
 }
 
 -(UIView *)detailFirstView

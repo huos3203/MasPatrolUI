@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @interface ReportDetailView : UIView
-
+@property (strong, nonatomic) UIView *line;
 -(void)reloadData:(ReportDetailViewModel *)model;
 
 @end

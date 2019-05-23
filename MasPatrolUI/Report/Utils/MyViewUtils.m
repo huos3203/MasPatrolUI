@@ -7,7 +7,7 @@
 //
 
 #import "MyViewUtils.h"
-
+#import <Masonry/Masonry.h>
 @implementation MyViewUtils
 #pragma mark - 辅助方法
 +(UIBarButtonItem *)createBarBy:(UIButton *)btn
@@ -37,4 +37,31 @@
     maskLayer.path = maskPath.CGPath;
     view.layer.mask = maskLayer;
 }
+
++(UILabel *)secondCell:(NSString *)name for:(UIView *)view
+{
+    UILabel *label = [UILabel new];
+    label.textColor = [UIColor colorWithRed:47/255.0 green:56/255.0 blue:86/255.0 alpha:1.0];
+    label.font = [UIFont boldSystemFontOfSize:16.0];
+    label.text = name;
+    UILabel *text = [UILabel new];
+    text.numberOfLines = 0;
+    text.textColor = [UIColor colorWithRed:47/255.0 green:56/255.0 blue:86/255.0 alpha:1.0];
+    text.font = [UIFont systemFontOfSize:16.0];
+    [view addSubview:label];
+    [view addSubview:text];
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@8);
+        make.top.equalTo(text.mas_top);
+    }];
+    [text setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+    [text mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(view).offset(8);
+        make.right.equalTo(view);
+        make.centerY.equalTo(view);
+        make.left.equalTo(label.mas_right).offset(8);
+    }];
+    return text;
+}
+
 @end
