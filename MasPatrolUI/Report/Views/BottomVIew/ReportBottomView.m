@@ -54,8 +54,18 @@
     UIStackView *root = [UIStackView new];
     root.axis = UILayoutConstraintAxisVertical;
     //tag
-    StoreTypeColView *tagView = [StoreTypeColView new];
-    tagView.dataArray = @[@"业态一",@"业态er",@"业态san",@"业态er",@"业态san",@"业态er",@"业态san"];
+    StoreTypeColView *tagView = [[StoreTypeColView alloc] initWith:^(NSString * typeId) {
+        NSLog(@"返回值:%@",typeId);
+    }];
+    NSMutableArray *array = [NSMutableArray new];
+    for (int i = 0; i < 8; i++) {
+        StoreTypeModel *model = [StoreTypeModel new];
+        model.typeId = [NSString stringWithFormat:@"%d",i];
+        model.title = @"业态一";
+        model.flag = SType_Completed;
+        [array addObject:model];
+    }
+    tagView.dataArray = [array copy];
     [tagView reloadData];
     [tagView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@30);
