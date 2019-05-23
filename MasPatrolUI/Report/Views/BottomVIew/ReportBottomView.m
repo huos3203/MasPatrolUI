@@ -57,32 +57,23 @@
     StoreTypeColView *tagView = [[StoreTypeColView alloc] initWith:^(NSString * typeId) {
         NSLog(@"返回值:%@",typeId);
     }];
-    NSMutableArray *array = [NSMutableArray new];
-    for (int i = 0; i < 8; i++) {
-        StoreTypeModel *model = [StoreTypeModel new];
-        model.typeId = [NSString stringWithFormat:@"%d",i];
-        model.title = @"业态一";
-        model.flag = SType_Completed;
-        [array addObject:model];
-    }
-    tagView.dataArray = [array copy];
-    [tagView reloadData];
     [tagView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@30);
     }];
     _storeTypeView = tagView;
     [root addArrangedSubview:tagView];
+    
     //camera
     ReportCameraView *cameraView = [ReportCameraView new];
-    cameraView.backgroundColor = [UIColor greenColor];
     [cameraView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@90);
+        make.height.equalTo(@140);
     }];
     _cameraView = cameraView;
     [root addArrangedSubview:cameraView];
+    
     //备注
     UIView *noteView = [UIView new];
-    noteView.backgroundColor= [UIColor grayColor];
+//    noteView.backgroundColor= [UIColor grayColor];
     [noteView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@100);
     }];
@@ -96,7 +87,33 @@
     [root mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.insets(UIEdgeInsetsZero);
     }];
+    [self reloadData];
 }
+
+-(void)reloadData
+{
+    NSMutableArray *array = [NSMutableArray new];
+    for (int i = 0; i < 8; i++) {
+        StoreTypeModel *model = [StoreTypeModel new];
+        model.typeId = [NSString stringWithFormat:@"%d",i];
+        model.title = @"业态一";
+        model.flag = SType_Completed;
+        [array addObject:model];
+    }
+    _storeTypeView.dataArray = [array copy];
+    [_storeTypeView reloadData];
+    
+    NSMutableArray *cameraArr = [NSMutableArray new];
+    for (int i = 0; i < 8; i++) {
+        ReportCameraModel *model = [ReportCameraModel new];
+        model.type = Cell_CanDel;
+        model.url = @"https://upload.jianshu.io/users/upload_avatars/2456771/d9dc05b91093.jpg";
+        [cameraArr addObject:model];
+    }
+    _cameraView.dataArray = [cameraArr copy];
+    
+}
+
 
 -(UIView *)infoView
 {

@@ -139,7 +139,7 @@
         [self addSubview:line];
         [line mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@0.5);
-            make.top.left.right.equalTo(@0);
+            make.bottom.left.right.equalTo(@0);
         }];
     }
     return self;
