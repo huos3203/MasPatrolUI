@@ -18,7 +18,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     ReportBottomView *bottomView = [ReportBottomView new];
-//    bottomView.backgroundColor = [UIColor redColor];
     [bottomView show:Task_Invalid forStoreType:0];
     [self.scrollView addSubview:bottomView];
     [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {

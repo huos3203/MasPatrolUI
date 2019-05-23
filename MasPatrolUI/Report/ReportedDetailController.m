@@ -32,7 +32,8 @@
     __weak typeof(self) weakSelf = self;
     [self.view addSubview:self.scrollView];
     [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-         make.edges.equalTo(self.view);
+        make.edges.equalTo(weakSelf.view);
+        weakSelf.scrollView_mas_Bottom = make.bottom.equalTo(weakSelf.view);
     }];
     _detailView = [ReportDetailView new];
     self.line = _detailView.line;

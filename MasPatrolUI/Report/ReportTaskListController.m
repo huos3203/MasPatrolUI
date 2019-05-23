@@ -11,6 +11,7 @@
 #import "ReportedDetailController.h"
 #import "ReportedToDoController.h"
 #import "ReportInvalidDetailController.h"
+#import "ReportedDoingController.h"
 @interface ReportTaskListController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -59,12 +60,18 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UIViewController *taskVC;
-    _flag = Task_Invalid;
+    _flag = Task_Doing;
     switch (_flag) {
         case Task_TODO:
         {
             ReportedToDoController *todo = [ReportedToDoController new];
             taskVC = todo;
+            break;
+        }
+        case Task_Doing:
+        {
+            ReportedDoingController *doing = [ReportedDoingController new];
+            taskVC = doing;
             break;
         }
         case Task_Done:

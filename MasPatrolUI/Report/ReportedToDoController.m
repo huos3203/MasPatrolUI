@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height - 60 - 50);
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height - 60 - 44);
     [self installBottomView];
 }
 
@@ -47,9 +47,7 @@
         make.left.right.bottom.equalTo(weakSelf.view);
         make.height.equalTo(@44);
     }];
-    [self.scrollView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(@44);
-    }];
+    self.scrollView_mas_Bottom.offset(-44);
 }
 
 #pragma mark - UIAction

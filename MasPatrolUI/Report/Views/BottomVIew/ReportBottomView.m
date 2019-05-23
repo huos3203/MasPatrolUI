@@ -55,10 +55,19 @@
     root.axis = UILayoutConstraintAxisVertical;
     //tag
     StoreTypeColView *tagView = [StoreTypeColView new];
+    tagView.dataArray = @[@"业态一",@"业态er",@"业态san",@"业态er",@"业态san",@"业态er",@"业态san"];
+    [tagView reloadData];
+    [tagView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@30);
+    }];
     _storeTypeView = tagView;
     [root addArrangedSubview:tagView];
     //camera
     ReportCameraView *cameraView = [ReportCameraView new];
+    cameraView.backgroundColor = [UIColor greenColor];
+    [cameraView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@90);
+    }];
     _cameraView = cameraView;
     [root addArrangedSubview:cameraView];
     //备注

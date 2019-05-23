@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) UIView *line;
 @property (strong, nonatomic) UIScrollView *scrollView;
-
+@property (strong, nonatomic) MASConstraint *scrollView_mas_Bottom;
 @end
 
 NS_ASSUME_NONNULL_END

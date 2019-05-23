@@ -10,8 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface StoreTypeColView : UIView
+@interface StoreTypeCell : UICollectionViewCell
+@property (strong, nonatomic) NSString *title;
+@end
 
+@interface StoreTypeColView : UIView
+@property (strong, nonatomic) NSArray *dataArray;
+-(void)reloadData;
 @end
 
 NS_ASSUME_NONNULL_END
