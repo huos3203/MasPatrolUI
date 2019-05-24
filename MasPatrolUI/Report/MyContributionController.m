@@ -32,7 +32,7 @@
         make.height.equalTo(@100);
         make.left.equalTo(@10);
         make.right.equalTo(@-10);
-        make.top.equalTo(self.view).offset(100);
+        make.top.equalTo(self.view).offset(80);
     }];
     [stack reloadData:@"19" second:@"23" third:@"5"];
     [self.view addSubview:self.tableView];
@@ -43,14 +43,18 @@
     }];
     self.title = @"我的贡献";
     UIButton *btn = [UIButton new];
-    [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [btn setTitle:@"❮" forState:UIControlStateNormal];
+    UIImage *btnimg = [UIImage imageNamed:@"repback"];
+    [btn setImage:btnimg forState:UIControlStateNormal];
     btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [btn addTarget:self action:@selector(backBarAction) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [MyViewUtils createBarBy:btn];
 }
 
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MyViewUtils clearNavBarLine:self.navigationController.navigationBar];
+}
 #pragma mark - UIAction
 -(void)backBarAction
 {

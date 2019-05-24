@@ -17,11 +17,19 @@ typedef enum : NSUInteger {
     Task_Invalid,
 } TaskFlagType;
 
+typedef enum : NSUInteger {
+    SType_CanDo,
+    SType_CantDo,
+    SType_Completed,
+} StoreTypeFlag;
+
 @interface MyViewUtils : NSObject
 +(NSMutableAttributedString *)installAtrribute:(NSString *)first second:(NSString *)second;
 +(void)maskLayer:(UIView *)view;
 +(UIBarButtonItem *)createBarBy:(UIButton *)btn;
 +(UILabel *)secondCell:(NSString *)name for:(UIView *)view;
++(void)clearNavBarLine:(UINavigationBar *)navbar;
++(void)clear:(UINavigationController *)navVC barType:(BOOL)isClear;
 @end
 
 NS_ASSUME_NONNULL_END

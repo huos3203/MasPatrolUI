@@ -106,14 +106,15 @@
         blockHandler = handler;
         UIButton *leftArrow = [UIButton new];
         leftBtn = leftArrow;
-        leftArrow.backgroundColor = [UIColor redColor];
-        [leftArrow setImage:[UIImage new] forState:UIControlStateNormal];
+        [leftArrow setImage:[UIImage imageNamed:@"reprightArrow"] forState:UIControlStateNormal];
+        CGAffineTransform transform = CGAffineTransformIdentity;
+        transform = CGAffineTransformRotate(transform, M_PI);
+        leftArrow.transform = transform;
         leftArrow.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [leftArrow addTarget:self action:@selector(toLeftAction:) forControlEvents:UIControlEventTouchUpInside];
         UIButton *rightArrow = [UIButton new];
         rightBtn = rightArrow;
-        rightArrow.backgroundColor = [UIColor redColor];
-        [rightArrow setImage:[UIImage new] forState:UIControlStateNormal];
+        [rightArrow setImage:[UIImage imageNamed:@"reprightArrow"] forState:UIControlStateNormal];
         rightArrow.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         [rightArrow addTarget:self action:@selector(toRightAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:leftArrow];
@@ -154,14 +155,12 @@
 #pragma mark - UIAction
 -(void)toLeftAction:(UIButton *)leftArrow
 {
-    leftArrow.enabled = NO;
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.collectionView selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionLeft];
 }
 
 -(void)toRightAction:(UIButton *)rightArrow
 {
-    rightArrow.enabled = NO;
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.dataArray.count-1 inSection:0];
     [self.collectionView selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionLeft];
 }
@@ -186,7 +185,13 @@
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     StoreTypeModel *model = self.dataArray[indexPath.row];
-    if (model.flag == SType_CantDo) return NO;
+    BOOL isEqual = NO;
+    NSArray *arry = [self.collectionView indexPathsForSelectedItems];
+    if (arry.count > 0) {
+        NSIndexPath *preIndex = arry[0];
+        isEqual = preIndex.row == indexPath.row;
+    }
+    if (model.flag == SType_CantDo || isEqual) return NO;
     return YES;
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -197,14 +202,11 @@
     }
 }
 
--(void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
+-(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(nonnull UICollectionViewCell *)cell forItemAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0 || indexPath.row == self.dataArray.count - 1) {
-        leftBtn.enabled = YES;
-        rightBtn.enabled = YES;
-    }
+    leftBtn.enabled = indexPath.row == 0?NO:YES;
+    rightBtn.enabled = indexPath.row == self.dataArray.count - 1?NO:YES;
 }
-
 
 #pragma mark - getter
 -(UICollectionView *)collectionView

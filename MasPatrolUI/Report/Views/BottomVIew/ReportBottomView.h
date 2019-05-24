@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface STypeBodyModel : NSObject
 -(instancetype)initForInvalidNote:(NSString *)note who:(NSString *)pepleName address:(NSString *)address time:(NSString *)time;
 @property (strong, nonatomic) NSString *typeId;
+@property (assign, nonatomic) StoreTypeFlag flag;
 @property (strong, nonatomic) NSMutableArray<ReportCameraModel *> *cameraArray;
 @property (strong, nonatomic) NSString *pepleName;
 @property (strong, nonatomic) NSString *address;
@@ -22,8 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString *note;
 @end
 @interface ReportBottomView : UIView
--(instancetype)initWith:(NSMutableArray *)typeArray and:(NSMutableArray *)bodyArray;
--(void)show:(TaskFlagType)type forStoreType:(NSUInteger)num;
+-(instancetype)initWith:(NSMutableArray *)typeArray
+                    and:(NSMutableArray *)bodyArray
+   ScrollContentHandler:(void(^)(BOOL height))handler;
+-(void)show:(TaskFlagType)type;
 @end
 
 NS_ASSUME_NONNULL_END

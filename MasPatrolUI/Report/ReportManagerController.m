@@ -108,14 +108,18 @@
     }];
     self.title = @"上报管理";
     UIButton *btn = [UIButton new];
-    [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [btn setTitle:@"❮" forState:UIControlStateNormal];
+    UIImage *btnimg = [UIImage imageNamed:@"repback"];
+    [btn setImage:btnimg forState:UIControlStateNormal];
     btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [btn addTarget:self action:@selector(backBarAction) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [MyViewUtils createBarBy:btn];
 }
 
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MyViewUtils clearNavBarLine:self.navigationController.navigationBar];
+}
 #pragma mark - UIAction
 -(void)backBarAction
 {

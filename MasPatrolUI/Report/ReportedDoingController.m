@@ -18,13 +18,24 @@
 @end
 
 @implementation ReportedDoingController
-
+{
+    CGFloat originHeight;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height - 60 - 44);
     // Do any additional setup after loading the view.
-    ReportBottomView *bottomView = [[ReportBottomView alloc] initWith:self.typeArray and:self.bodyArray];
-    [bottomView show:Task_Doing forStoreType:2];
+    originHeight = self.scrollView.contentSize.height;
+ReportBottomView *bottomView = [[ReportBottomView alloc] initWith:self.typeArray
+                                                              and:self.bodyArray
+                                             ScrollContentHandler:^(BOOL height) {
+                                                 CGFloat w = self.scrollView.contentSize.width;
+                                                 CGFloat h = height?self->originHeight + 160:self->originHeight;
+                                                 CGSize size = CGSizeMake(w, h);
+                                                 self.scrollView.contentSize = size;
+                                             }
+                                ];
+    [bottomView show:Task_Doing];
     [self.scrollView addSubview:bottomView];
     [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(self.view.frame.size.width);
@@ -69,7 +80,7 @@
                 model.flag = SType_CantDo;
             }else if (i == 2) {
                 model.flag = SType_CanDo;
-            }else if(i == 3){
+            }else if(i == 3 || i == 4 || i == 5){
                 model.flag = SType_Completed;
             }else{
                model.flag = SType_CanDo;
@@ -84,15 +95,16 @@
 {
     if (!_bodyArray) {
         _bodyArray = [NSMutableArray new];
-        for (int i = 0; i < 8; i++) {
+        for (StoreTypeModel *type in self.typeArray) {
             STypeBodyModel *stmodel = [STypeBodyModel new];
-            stmodel.typeId = [NSString stringWithFormat:@"%d",i];
-            stmodel.pepleName = [NSString stringWithFormat:@"alin%d",i];
+            stmodel.typeId = type.typeId;
+            stmodel.pepleName = type.title;
+            stmodel.flag = type.flag;
             stmodel.time = @"2019-08-09";
             stmodel.note = @"https://upload.jianshu.io/users/uploahttps://upload.jianshu.io/users/uploa";
             stmodel.address = @"beijingshi xierqi";
             NSString *url = @"";
-            if (i%2) {
+            if (type.typeId.integerValue%2) {
                 url = @"https://upload.jianshu.io/users/upload_avatars/1654560/e28e067af84a.JPG";
             }else{
                 url = @"https://upload.jianshu.io/users/upload_avatars/2456771/d9dc05b91093.jpg";

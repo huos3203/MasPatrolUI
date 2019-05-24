@@ -47,22 +47,27 @@
     UIView *_doneView;
     UIButton *_note;
     UIView *_noteline;
+    void(^ScrollContentHandler)(BOOL);
 }
 
--(instancetype)initWith:(NSMutableArray *)typeArray and:(NSMutableArray *)bodyArray
+-(instancetype)initWith:(NSMutableArray *)typeArray
+                    and:(NSMutableArray *)bodyArray
+   ScrollContentHandler:(void(^)(BOOL height))handler
 {
     self = [super init];
+    ScrollContentHandler = handler;
     _typeArray = typeArray;
     _bodyArray = bodyArray;
     [self installView];
     _storeTypeView.dataArray = _typeArray;
     [_storeTypeView reloadData];
+    [self reloadData:nil];
     return self;
 }
 
--(void)show:(TaskFlagType)type forStoreType:(NSUInteger)num;
+-(void)show:(TaskFlagType)type
 {
-    if (num == 0) _storeTypeView.hidden = YES;
+    if (_typeArray.count == 0) _storeTypeView.hidden = YES;
     switch (type) {
         case Task_Invalid:
         {
@@ -84,7 +89,27 @@
         default:
             break;
     }
-    [self reloadData:nil];
+}
+-(void)showByType:(StoreTypeFlag)type
+{
+    switch (type) {
+        case SType_CanDo:
+        {
+            _doneView.hidden = YES;
+            if (ScrollContentHandler) ScrollContentHandler(NO);
+            [self noteEdit];
+            break;
+        }
+        case SType_Completed:
+        {
+            _doneView.hidden = NO;
+            [self noteDetail];
+            if (ScrollContentHandler) ScrollContentHandler(YES);
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 -(void)installView
@@ -130,6 +155,16 @@
     _note.backgroundColor = [UIColor whiteColor];
     [_note setTitleColor:[UIColor colorWithRed:47/255.0 green:56/255.0 blue:86/255.0 alpha:1.0] forState:UIControlStateNormal];
     _noteline.hidden = NO;
+}
+-(void)noteEdit
+{
+    _noteline.hidden = YES;
+    _note.userInteractionEnabled = YES;
+    [_note setTitle:@"多行输入" forState:UIControlStateNormal];
+    _note.contentEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
+    _note.backgroundColor = [UIColor colorWithRed:248/255.0 green:248/255.0 blue:248/255.0 alpha:1.0];
+    [_note setTitleColor:[UIColor colorWithRed:94/255.0 green:99/255.0 blue:123/255.0 alpha:1.0] forState:UIControlStateNormal];
+    
 }
 -(UIView *)noteView
 {
@@ -241,6 +276,7 @@
     if (!model) {
         return;
     }
+    [self showByType:model.flag];
     _cameraView.dataArray = model.cameraArray;
     [_cameraView reloadData];
     

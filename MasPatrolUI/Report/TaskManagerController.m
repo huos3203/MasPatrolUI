@@ -27,10 +27,17 @@
     [self.view addSubview:task];
     [task mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.tableView.mas_bottom);
+        make.height.equalTo(@44);
         make.left.right.equalTo(@0);
         make.bottom.equalTo(@0);
     }];
     [self customBarButton];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MyViewUtils clearNavBarLine:self.navigationController.navigationBar];
 }
 -(void)customBarButton
 {

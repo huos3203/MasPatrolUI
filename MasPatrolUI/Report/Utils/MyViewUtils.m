@@ -64,4 +64,25 @@
     return text;
 }
 
++(void)clear:(UINavigationController *)navVC barType:(BOOL)isClear
+{
+    [navVC setNavigationBarHidden:NO];
+    navVC.navigationBar.translucent = YES;
+    UIColor *color = isClear?[UIColor clearColor]:[UIColor whiteColor];
+    CGRect rect = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 64);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, color.CGColor);
+    CGContextFillRect(context, rect);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    [navVC.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    navVC.navigationBar.clipsToBounds = isClear;
+}
++(void)clearNavBarLine:(UINavigationBar *)navbar
+{
+    [navbar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    navbar.shadowImage = [[UIImage alloc] init];
+}
+
 @end

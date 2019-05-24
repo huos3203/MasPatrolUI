@@ -24,7 +24,6 @@
 {
     if (self = [super initWithFrame:frame]) {
         //ImgView
-        self.backgroundColor = [UIColor redColor];
         UIImageView *imgView = [UIImageView new];
         _preImgView = imgView;
         [self.contentView addSubview:imgView];
@@ -35,7 +34,7 @@
         }];
         //Delbut
         UIButton *delBut = [UIButton new];
-        delBut.backgroundColor = [UIColor redColor];
+        [delBut setImage:[UIImage imageNamed:@"repdel"] forState:UIControlStateNormal];
         _delBut = delBut;
         [self.contentView addSubview:delBut];
         [delBut mas_makeConstraints:^(MASConstraintMaker *make) {

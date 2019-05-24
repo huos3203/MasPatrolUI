@@ -7,14 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MyViewUtils.h"
 NS_ASSUME_NONNULL_BEGIN
-
-typedef enum : NSUInteger {
-    SType_CanDo,
-    SType_CantDo,
-    SType_Completed,
-} StoreTypeFlag;
 
 @interface StoreTypeModel : NSObject
 @property (strong, nonatomic) NSString *typeId;

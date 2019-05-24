@@ -30,13 +30,17 @@
     
     [self customBarButton];
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MyViewUtils clearNavBarLine:self.navigationController.navigationBar];
+}
 -(void)customBarButton
 {
     UIButton *btn = [UIButton new];
-    btn.backgroundColor = [UIColor redColor];
-    UIImage *btnimg = [UIImage imageNamed:@"GBCheckUpResource.bundle/whpoint.tiff"];
+    UIImage *btnimg = [UIImage imageNamed:@"repback"];
     [btn setImage:btnimg forState:UIControlStateNormal];
+    btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [btn addTarget:self action:@selector(btnBackClick) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [MyViewUtils createBarBy:btn];
 }

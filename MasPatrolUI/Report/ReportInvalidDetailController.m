@@ -17,8 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    ReportBottomView *bottomView = [[ReportBottomView alloc] initWith:@[] and:self.bodyArray];
-    [bottomView show:Task_Invalid forStoreType:0];
+    ReportBottomView *bottomView = [[ReportBottomView alloc] initWith:@[]
+                                                                  and:self.bodyArray
+                                                 ScrollContentHandler:nil
+                                    ];
+    [bottomView show:Task_Invalid];
     [self.scrollView addSubview:bottomView];
     [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(self.view.frame.size.width);
