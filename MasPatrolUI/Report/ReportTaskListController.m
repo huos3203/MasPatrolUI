@@ -9,7 +9,6 @@
 #import "ReportTaskListController.h"
 #import "ReportTaskListCell.h"
 #import "ReportedDetailController.h"
-#import "ReportedToDoController.h"
 #import "ReportInvalidDetailController.h"
 #import "ReportedDoingController.h"
 @interface ReportTaskListController ()<UITableViewDelegate,UITableViewDataSource>
@@ -68,13 +67,15 @@
     switch (_flag) {
         case Task_TODO:
         {
-            ReportedToDoController *todo = [ReportedToDoController new];
-            taskVC = todo;
+            ReportedDoingController *doing = [ReportedDoingController new];
+            doing.flag = Task_TODO;
+            taskVC = doing;
             break;
         }
         case Task_Doing:
         {
             ReportedDoingController *doing = [ReportedDoingController new];
+            doing.flag = Task_Doing;
             taskVC = doing;
             break;
         }

@@ -8,7 +8,6 @@
 
 #import "ReportManagerController.h"
 #import <Masonry/Masonry.h>
-#import "ReportedToDoController.h"
 #import "ReportTaskListController.h"
 #import "MyContributionController.h"
 #import "MyViewUtils.h"

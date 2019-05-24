@@ -7,8 +7,8 @@
 //
 
 #import "ReportedDetailController.h"
-#import "MyViewUtils.h"
 #import "ReportDetailView.h"
+#import "MyViewUtils.h"
 @interface ReportedDetailController ()
 @end
 
@@ -23,13 +23,8 @@
     [self customBarButton];
     [self installView];
     [self reloadViewData];
-    
 }
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [MyViewUtils clearNavBarLine:self.navigationController.navigationBar];
-}
+
 #pragma mark - View
 -(void)installView
 {
@@ -96,6 +91,7 @@
 {
     if (!_scrollView) {
         _scrollView = [UIScrollView new];
+        _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height - 44);
     }
     return _scrollView;

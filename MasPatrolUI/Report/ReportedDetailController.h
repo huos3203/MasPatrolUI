@@ -10,6 +10,10 @@
 #import <Masonry/Masonry.h>
 NS_ASSUME_NONNULL_BEGIN
 
+#define     originHeight 414
+#define     bodyHeight   250
+#define     doneHeight   180
+
 @interface ReportedDetailController : UIViewController
 
 @property (strong, nonatomic) UIView *line;

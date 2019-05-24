@@ -47,15 +47,15 @@
     UIView *_doneView;
     UIButton *_note;
     UIView *_noteline;
-    void(^ScrollContentHandler)(BOOL);
+    void(^isDetail)(BOOL);
 }
 
 -(instancetype)initWith:(NSMutableArray *)typeArray
                     and:(NSMutableArray *)bodyArray
-   ScrollContentHandler:(void(^)(BOOL height))handler
+               isDetail:(void(^)(BOOL isDetail))handler
 {
     self = [super init];
-    ScrollContentHandler = handler;
+    isDetail = handler;
     _typeArray = typeArray;
     _bodyArray = bodyArray;
     [self installView];
@@ -96,7 +96,7 @@
         case SType_CanDo:
         {
             _doneView.hidden = YES;
-            if (ScrollContentHandler) ScrollContentHandler(NO);
+            if (isDetail) isDetail(NO);
             [self noteEdit];
             break;
         }
@@ -104,7 +104,7 @@
         {
             _doneView.hidden = NO;
             [self noteDetail];
-            if (ScrollContentHandler) ScrollContentHandler(YES);
+            if (isDetail) isDetail(YES);
             break;
         }
         default:

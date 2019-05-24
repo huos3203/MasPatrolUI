@@ -81,7 +81,7 @@
 }
 +(void)clearNavBarLine:(UINavigationBar *)navbar
 {
-    [navbar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+//    [navbar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     navbar.shadowImage = [[UIImage alloc] init];
 }
 

@@ -31,7 +31,6 @@
 		84E81F5A2293FF5900E630BB /* TaskManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F592293FF5900E630BB /* TaskManagerController.m */; };
 		84E81F5D229408C800E630BB /* ReportedDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F5C229408C800E630BB /* ReportedDetailController.m */; };
 		84E81F60229546AF00E630BB /* ReportDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F5F229546AF00E630BB /* ReportDetailView.m */; };
-		84E81F632296362E00E630BB /* ReportedToDoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F622296362E00E630BB /* ReportedToDoController.m */; };
 		84E81F662296450B00E630BB /* ReportInvalidDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F652296450B00E630BB /* ReportInvalidDetailController.m */; };
 		84E81F6A229648CD00E630BB /* StoreTypeColView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F69229648CD00E630BB /* StoreTypeColView.m */; };
 		84E81F6D22964ABF00E630BB /* ReportCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F6C22964ABF00E630BB /* ReportCameraView.m */; };
@@ -90,8 +89,6 @@
 		84E81F5C229408C800E630BB /* ReportedDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportedDetailController.m; sourceTree = "<group>"; };
 		84E81F5E229546AF00E630BB /* ReportDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportDetailView.h; sourceTree = "<group>"; };
 		84E81F5F229546AF00E630BB /* ReportDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportDetailView.m; sourceTree = "<group>"; };
-		84E81F612296362E00E630BB /* ReportedToDoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportedToDoController.h; sourceTree = "<group>"; };
-		84E81F622296362E00E630BB /* ReportedToDoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportedToDoController.m; sourceTree = "<group>"; };
 		84E81F642296450B00E630BB /* ReportInvalidDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportInvalidDetailController.h; sourceTree = "<group>"; };
 		84E81F652296450B00E630BB /* ReportInvalidDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportInvalidDetailController.m; sourceTree = "<group>"; };
 		84E81F68229648CD00E630BB /* StoreTypeColView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreTypeColView.h; sourceTree = "<group>"; };
@@ -208,8 +205,6 @@
 				84E81F432292A29D00E630BB /* MyContributionController.m */,
 				84E81F5B229408C800E630BB /* ReportedDetailController.h */,
 				84E81F5C229408C800E630BB /* ReportedDetailController.m */,
-				84E81F612296362E00E630BB /* ReportedToDoController.h */,
-				84E81F622296362E00E630BB /* ReportedToDoController.m */,
 				84E81F71229663C900E630BB /* ReportedDoingController.h */,
 				84E81F72229663C900E630BB /* ReportedDoingController.m */,
 				84E81F642296450B00E630BB /* ReportInvalidDetailController.h */,
@@ -410,7 +405,6 @@
 				84E81F362292824F00E630BB /* ReportTaskListController.m in Sources */,
 				81E0715E227185C400E3880B /* main.m in Sources */,
 				81E0716A227185FD00E3880B /* PatrolViewController.m in Sources */,
-				84E81F632296362E00E630BB /* ReportedToDoController.m in Sources */,
 				84E81F3D22928DE800E630BB /* ReportTaskModel.m in Sources */,
 				84E81F442292A29D00E630BB /* MyContributionController.m in Sources */,
 				84E81F412292A15B00E630BB /* ReportTaskListCell.m in Sources */,

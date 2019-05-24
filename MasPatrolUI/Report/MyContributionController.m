@@ -13,7 +13,6 @@
 #import "MyContrStackView.h"
 #import <Masonry/Masonry.h>
 #import "ReportedDetailController.h"
-
 #import "MyViewUtils.h"
 @interface MyContributionController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) UITableView *tableView;

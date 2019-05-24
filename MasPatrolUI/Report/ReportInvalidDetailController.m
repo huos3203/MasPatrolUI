@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view.
     ReportBottomView *bottomView = [[ReportBottomView alloc] initWith:@[]
                                                                   and:self.bodyArray
-                                                 ScrollContentHandler:nil
+                                                             isDetail:nil
                                     ];
     [bottomView show:Task_Invalid];
     [self.scrollView addSubview:bottomView];

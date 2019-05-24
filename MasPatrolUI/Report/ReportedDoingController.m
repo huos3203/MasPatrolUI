@@ -15,59 +15,138 @@
 @interface ReportedDoingController ()
 @property (strong, nonatomic) NSMutableArray<StoreTypeModel *> *typeArray;
 @property (strong, nonatomic) NSMutableArray<STypeBodyModel *> *bodyArray;
+@property (strong, nonatomic) ReportBottomView *bottomView;
+@property (strong, nonatomic) UIStackView *threeButVIew;
 @end
 
 @implementation ReportedDoingController
 {
-    CGFloat originHeight;
+    BOOL _isDetail;
+    
+    UIButton *_invalidBtn;
+    UIButton *_todoBtn;
+    UIButton *_commitBtn;
+    MASConstraint *_threeButHeight;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height - 60 - 44);
     // Do any additional setup after loading the view.
-    originHeight = self.scrollView.contentSize.height;
-ReportBottomView *bottomView = [[ReportBottomView alloc] initWith:self.typeArray
-                                                              and:self.bodyArray
-                                             ScrollContentHandler:^(BOOL height) {
-                                                 CGFloat w = self.scrollView.contentSize.width;
-                                                 CGFloat h = height?self->originHeight + 160:self->originHeight;
-                                                 CGSize size = CGSizeMake(w, h);
-                                                 self.scrollView.contentSize = size;
-                                             }
-                                ];
-    [bottomView show:Task_Doing];
-    [self.scrollView addSubview:bottomView];
-    [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(self.view.frame.size.width);
-        make.top.equalTo(self.line.mas_bottom).offset(8);
-    }];
     //提交按钮
-    [self installCommitView];
+    [self installThreeBtnView];
+    [self.bottomView show:Task_Doing];
 }
-//无效上报/领取任务
--(void)installCommitView
+
+-(void)reloadThreeBtnView
 {
+    _invalidBtn.hidden = YES;
+    _todoBtn.hidden = YES;
+    _commitBtn.hidden = YES;
+    _threeButHeight.offset(44);
+    self.scrollView_mas_Bottom.offset(-44);
+    if (self.flag == Task_TODO) {
+        _invalidBtn.hidden = NO;
+        _todoBtn.hidden = NO;
+    }else if (self.flag == Task_Doing) {
+        _commitBtn.hidden = NO;
+    }else{
+        self.scrollView_mas_Bottom.offset(0);
+        _threeButHeight.offset(0);
+    }
+
+    CGFloat h;
+    if (self.flag == Task_TODO) {
+        _bottomView.hidden = YES;
+        h = originHeight;
+    }else{
+        _bottomView.hidden = NO;
+        CGFloat hh = originHeight + bodyHeight;
+        h = _isDetail?hh+doneHeight:hh;
+    }
+    CGSize size = CGSizeMake(self.scrollView.contentSize.width, h);
+    self.scrollView.contentSize = size;
+}
+
+//无效上报/领取任务/检查结果上传
+-(void)installThreeBtnView
+{
+    UIStackView *stackView = [UIStackView new];
+    stackView.axis = UILayoutConstraintAxisHorizontal;
+    stackView.distribution = UIStackViewDistributionFillEqually;
+    UIButton *invalidBtn = [UIButton new];
+    _invalidBtn = invalidBtn;
+    [invalidBtn setTitle:@"无效上报" forState:UIControlStateNormal];
+    invalidBtn.titleLabel.font = [UIFont boldSystemFontOfSize:18];
+    [invalidBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [invalidBtn setBackgroundColor:[UIColor colorWithRed:243/255.0 green:190/255.0 blue:76/255.0 alpha:1.0]];
+    [invalidBtn addTarget:self action:@selector(invalidAction) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *todoBtn = [UIButton new];
+    _todoBtn = todoBtn;
+    [todoBtn setTitle:@"领取任务" forState:UIControlStateNormal];
+    todoBtn.titleLabel.font = [UIFont boldSystemFontOfSize:18];
+    [todoBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [todoBtn setBackgroundColor:[UIColor colorWithRed:44/255.0 green:215/255.0 blue:115/255.0 alpha:1.0]];
+    [todoBtn addTarget:self action:@selector(todoAction) forControlEvents:UIControlEventTouchUpInside];
+    
     UIButton *commitBtn = [UIButton new];
+    _commitBtn = commitBtn;
     [commitBtn setTitle:@"检查结果上传" forState:UIControlStateNormal];
     commitBtn.titleLabel.font = [UIFont boldSystemFontOfSize:18];
     [commitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [commitBtn setBackgroundColor:[UIColor colorWithRed:44/255.0 green:215/255.0 blue:115/255.0 alpha:1.0]];
     [commitBtn addTarget:self action:@selector(commitAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    [stackView addArrangedSubview:invalidBtn];
+    [stackView addArrangedSubview:todoBtn];
+    [stackView addArrangedSubview:commitBtn];
+    
+    [self.view addSubview:stackView];
     __weak typeof(self) weakSelf = self;
-    [self.view addSubview:commitBtn];
-    [commitBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    [stackView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(weakSelf.view);
-        make.height.equalTo(@44);
+        self->_threeButHeight = make.height.equalTo(@44);
     }];
-    self.scrollView_mas_Bottom.offset(-30);
+    [self reloadThreeBtnView];
 }
 
+
+#pragma mark - UIAction
+-(void)invalidAction
+{
+    
+}
+
+-(void)todoAction
+{
+    
+}
 -(void)commitAction
 {
     
 }
 
 #pragma mark - getter
+-(ReportBottomView *)bottomView
+{
+    if (!_bottomView) {
+        __weak typeof(self) weakSelf = self;
+        _bottomView = [[ReportBottomView alloc] initWith:self.typeArray
+                                                     and:self.bodyArray
+                                                isDetail:^(BOOL isDetail) {
+                                                    if (weakSelf.flag != Task_TODO){
+                                                        weakSelf.flag = isDetail?Task_Done:Task_Doing;
+                                                        self->_isDetail = isDetail;
+                                                        [weakSelf reloadThreeBtnView];
+                                                    }
+                                               }
+                                  ];
+        [self.scrollView addSubview:_bottomView];
+        [_bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(self.view.frame.size.width);
+            make.top.equalTo(self.line.mas_bottom).offset(8);
+        }];
+    }
+    return _bottomView;
+}
 - (NSMutableArray<StoreTypeModel *> *)typeArray
 {
     if (!_typeArray) {

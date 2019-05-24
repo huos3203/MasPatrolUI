@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(void)open:(ReportVCType)vcType from:(UIViewController *)vc;
 
++(void)todoTaskBy:(NSString *)reportId;
 @end
 
 NS_ASSUME_NONNULL_END

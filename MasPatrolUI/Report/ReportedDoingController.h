@@ -7,11 +7,11 @@
 //
 
 #import "ReportedDetailController.h"
-
+#import "MyViewUtils.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ReportedDoingController : ReportedDetailController
-
+@property (assign, nonatomic) TaskFlagType flag;
 @end
 
 NS_ASSUME_NONNULL_END

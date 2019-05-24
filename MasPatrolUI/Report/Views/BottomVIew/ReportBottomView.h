@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ReportBottomView : UIView
 -(instancetype)initWith:(NSMutableArray *)typeArray
                     and:(NSMutableArray *)bodyArray
-   ScrollContentHandler:(void(^)(BOOL height))handler;
+               isDetail:(void(^)(BOOL isDetail))handler;
 -(void)show:(TaskFlagType)type;
 @end
 
