@@ -207,7 +207,10 @@
     leftBtn.enabled = indexPath.row == 0?NO:YES;
     rightBtn.enabled = indexPath.row == self.dataArray.count - 1?NO:YES;
 }
-
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    return CGSizeMake(20, 30);
+}
 #pragma mark - getter
 -(UICollectionView *)collectionView
 {
