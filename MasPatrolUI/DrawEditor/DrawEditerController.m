@@ -10,7 +10,8 @@
 #import <CLImageEditor/CLImageEditor.h>
 #import <Masonry/Masonry.h>
 
-//#import "CLImageEditor.h"
+#import "PatrolOptionSelController.h"
+
 @interface DrawEditerController ()<CLImageEditorDelegate>
 
 @end
@@ -65,8 +66,11 @@
 - (void)imageEditor:(CLImageEditor *)editor didFinishEditingWithImage:(UIImage *)image
 {
     [_imgView setImage:image];
-    [editor dismissViewControllerAnimated:YES completion:nil];
-    //跳转到检查项选择器
+    [editor dismissViewControllerAnimated:YES completion:^{
+        //跳转到检查项选择器
+        PatrolOptionSelController *optselVC = [PatrolOptionSelController new];
+        [self presentViewController:optselVC animated:YES completion:nil];
+    }];
 }
 
 

@@ -19,6 +19,7 @@
 		81E071702274288500E3880B /* MasRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E0716F2274288500E3880B /* MasRecordCell.m */; };
 		849487F122AFBDED00E21B60 /* DrawEditerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849487F022AFBDED00E21B60 /* DrawEditerController.m */; };
 		849487F622AFC28700E21B60 /* PatrolOptionSelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849487F522AFC28700E21B60 /* PatrolOptionSelController.m */; };
+		849487FA22AFC9D900E21B60 /* PatrolOptionSelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849487F922AFC9D900E21B60 /* PatrolOptionSelModel.m */; };
 		84D01E862278198C009DDF32 /* StoreResponsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D01E852278198C009DDF32 /* StoreResponsController.m */; };
 		84E81EAC22923F3000E630BB /* ReportManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81EAB22923F3000E630BB /* ReportManagerController.m */; };
 		84E81F362292824F00E630BB /* ReportTaskListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E81F352292824F00E630BB /* ReportTaskListController.m */; };
@@ -67,6 +68,8 @@
 		849487F022AFBDED00E21B60 /* DrawEditerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawEditerController.m; sourceTree = "<group>"; };
 		849487F422AFC28700E21B60 /* PatrolOptionSelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PatrolOptionSelController.h; sourceTree = "<group>"; };
 		849487F522AFC28700E21B60 /* PatrolOptionSelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PatrolOptionSelController.m; sourceTree = "<group>"; };
+		849487F822AFC9D900E21B60 /* PatrolOptionSelModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PatrolOptionSelModel.h; sourceTree = "<group>"; };
+		849487F922AFC9D900E21B60 /* PatrolOptionSelModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PatrolOptionSelModel.m; sourceTree = "<group>"; };
 		84D01E842278198C009DDF32 /* StoreResponsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreResponsController.h; sourceTree = "<group>"; };
 		84D01E852278198C009DDF32 /* StoreResponsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreResponsController.m; sourceTree = "<group>"; };
 		84E81EAA22923F3000E630BB /* ReportManagerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportManagerController.h; sourceTree = "<group>"; };
@@ -186,12 +189,22 @@
 		849487EE22AFBD2B00E21B60 /* DrawEditor */ = {
 			isa = PBXGroup;
 			children = (
+				849487F722AFC9A200E21B60 /* Models */,
 				849487EF22AFBDED00E21B60 /* DrawEditerController.h */,
 				849487F022AFBDED00E21B60 /* DrawEditerController.m */,
 				849487F422AFC28700E21B60 /* PatrolOptionSelController.h */,
 				849487F522AFC28700E21B60 /* PatrolOptionSelController.m */,
 			);
 			path = DrawEditor;
+			sourceTree = "<group>";
+		};
+		849487F722AFC9A200E21B60 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				849487F822AFC9D900E21B60 /* PatrolOptionSelModel.h */,
+				849487F922AFC9D900E21B60 /* PatrolOptionSelModel.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		84D01E8322781967009DDF32 /* 主体责任 */ = {
@@ -413,6 +426,7 @@
 				81E07153227185C000E3880B /* ViewController.m in Sources */,
 				84E81F5A2293FF5900E630BB /* TaskManagerController.m in Sources */,
 				84E81F4E2292B58800E630BB /* MyViewUtils.m in Sources */,
+				849487FA22AFC9D900E21B60 /* PatrolOptionSelModel.m in Sources */,
 				84E81F542293E8AF00E630BB /* ReportOpenAPI.m in Sources */,
 				849487F122AFBDED00E21B60 /* DrawEditerController.m in Sources */,
 				84E81F472292A32300E630BB /* MyContrStackView.m in Sources */,
