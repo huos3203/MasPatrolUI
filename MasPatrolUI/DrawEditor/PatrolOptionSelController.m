@@ -70,8 +70,14 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.curModel = self.dataArray[indexPath.row];
-    [self.rightTableView reloadData];
+    if (tableView.tag == 100) {
+        self.curModel = self.dataArray[indexPath.row];
+        [self.rightTableView reloadData];
+    }
+    
+    if (tableView.tag == 101) {
+        //TODO:回调电子巡查事件
+    }
 }
 
 #pragma mark - getter
