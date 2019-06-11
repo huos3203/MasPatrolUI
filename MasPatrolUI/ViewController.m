@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ReportOpenAPI.h"
+#import "DrawEditerController.h"
 @interface ViewController ()
 
 @end
@@ -21,7 +22,9 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    [ReportOpenAPI open:TaskManager from:self];
+//    [ReportOpenAPI open:TaskManager from:self];
+    DrawEditerController *editerVC = [DrawEditerController new];
+    [self presentViewController:editerVC animated:YES completion:nil];
 }
 
 @end

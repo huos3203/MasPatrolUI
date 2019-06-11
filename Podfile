@@ -9,5 +9,6 @@ target 'MasPatrolUI' do
   pod 'Masonry'
   pod 'JSONModel'
   pod 'SDWebImage', '~> 5.0'
-
+  pod 'CLImageEditor'
+  pod 'CLImageEditor/TextTool'
 end
