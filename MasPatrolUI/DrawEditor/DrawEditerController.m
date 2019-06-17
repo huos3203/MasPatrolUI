@@ -49,7 +49,7 @@
     }else{
         image = [UIImage imageNamed:@"default.jpg"];
     }
-    CLImageEditor *editor = [[CLImageEditor alloc] initWithJHImage:_imgView.image delegate:self];
+    CLImageEditor *editor = [[CLImageEditor alloc] initWithJHImage:image delegate:self];
     ///设置皮肤主题
     editor.theme.bundleName = @"CLImageEditor";  //资源bundle名
     editor.theme.backgroundColor = [UIColor blackColor];
@@ -57,11 +57,7 @@
     editor.theme.toolbarColor = [UIColor blackColor];
     editor.theme.toolIconColor = @"white";
     editor.theme.toolbarTextColor = [UIColor whiteColor];
-    //CLImageEditor *editor = [[CLImageEditor alloc] initWithDelegate:self];
     
-    /**/
-    NSLog(@"%@", editor.toolInfo);
-    NSLog(@"%@", editor.toolInfo.toolTreeDescription);
     CLImageToolInfo *tool0 = [editor.toolInfo subToolInfoWithToolName:@"CLDrawTool" recursive:NO];
     tool0.title = @"涂鸦";
     tool0.available = YES;//如果available设置为no，则从菜单视图中删除。
@@ -69,7 +65,6 @@
     CLImageToolInfo *tool01 = [editor.toolInfo subToolInfoWithToolName:@"CLTextTool" recursive:NO];
     tool01.title = @"文字";
     tool01.available = YES;//如果available设置为no，则从菜单视图中删除。
-    tool01.dockedNumber = -1;//置于顶层
     [self removeOtherBut:editor];
     
     [self presentViewController:editor animated:YES completion:nil];

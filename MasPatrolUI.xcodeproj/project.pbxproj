@@ -23,6 +23,7 @@
 		849487FA22AFC9D900E21B60 /* PatrolOptionSelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849487F922AFC9D900E21B60 /* PatrolOptionSelModel.m */; };
 		84D01E862278198C009DDF32 /* StoreResponsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D01E852278198C009DDF32 /* StoreResponsController.m */; };
 		84E1A02322B78843004D5C31 /* CLImageEditor.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84E1A02222B78843004D5C31 /* CLImageEditor.bundle */; };
+		84E1A02822B79329004D5C31 /* default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84E1A02722B79329004D5C31 /* default.jpg */; };
 		84E581C222B23DD600EC25B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E581C122B23DD600EC25B1 /* CoreGraphics.framework */; };
 		84E581C422B23DDD00EC25B1 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E581C322B23DDD00EC25B1 /* CoreImage.framework */; };
 		84E581C622B23DE700EC25B1 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E581C522B23DE700EC25B1 /* Accelerate.framework */; };
@@ -82,6 +83,7 @@
 		84D01E842278198C009DDF32 /* StoreResponsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreResponsController.h; sourceTree = "<group>"; };
 		84D01E852278198C009DDF32 /* StoreResponsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreResponsController.m; sourceTree = "<group>"; };
 		84E1A02222B78843004D5C31 /* CLImageEditor.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CLImageEditor.bundle; sourceTree = "<group>"; };
+		84E1A02722B79329004D5C31 /* default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default.jpg; sourceTree = "<group>"; };
 		84E581AF22B2379700EC25B1 /* CLImageEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLImageEditor.h; sourceTree = "<group>"; };
 		84E581B522B23AA700EC25B1 /* libCLImageEditorSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCLImageEditorSDK.a; sourceTree = "<group>"; };
 		84E581C122B23DD600EC25B1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -192,6 +194,7 @@
 				81E07151227185C000E3880B /* ViewController.h */,
 				81E07152227185C000E3880B /* ViewController.m */,
 				81E07154227185C000E3880B /* Main.storyboard */,
+				84E1A02722B79329004D5C31 /* default.jpg */,
 				81E07157227185C400E3880B /* Assets.xcassets */,
 				81E07159227185C400E3880B /* LaunchScreen.storyboard */,
 				81E0715C227185C400E3880B /* Info.plist */,
@@ -268,8 +271,8 @@
 			children = (
 				84E1A02222B78843004D5C31 /* CLImageEditor.bundle */,
 				84E581AF22B2379700EC25B1 /* CLImageEditor.h */,
-				848BB43822B245D700D35811 /* CLImageEditorTheme.h */,
 				848BB43722B245D700D35811 /* CLImageToolInfo.h */,
+				848BB43822B245D700D35811 /* CLImageEditorTheme.h */,
 				84E581B522B23AA700EC25B1 /* libCLImageEditorSDK.a */,
 			);
 			path = CLImageEditor;
@@ -422,6 +425,7 @@
 				84E1A02322B78843004D5C31 /* CLImageEditor.bundle in Resources */,
 				81E07158227185C400E3880B /* Assets.xcassets in Resources */,
 				81E07156227185C000E3880B /* Main.storyboard in Resources */,
+				84E1A02822B79329004D5C31 /* default.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
