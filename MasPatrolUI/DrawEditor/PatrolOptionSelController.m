@@ -34,7 +34,7 @@
     if (_model.isSelected) {
         self.textLabel.font = [UIFont systemFontOfSize:14];
         self.textLabel.textColor = [UIColor colorWithRed:66/255.0 green:139/255.0 blue:254/255.0 alpha:1.0];
-        _selIcon.image = [UIImage imageNamed:@"optSeleced"];
+        _selIcon.image = [UIImage imageNamed:@"optSelected"];
     }else{
         _selIcon.image = [UIImage imageNamed:@"deseleced"];
         self.textLabel.font = [UIFont systemFontOfSize:14];
@@ -85,6 +85,9 @@
 @property (strong, nonatomic) NSArray *dataArray;
 @property (strong, nonatomic) PatrolOptClsModel *curModel;
 
+//回传选中的检查项数组
+@property (strong, nonatomic) NSMutableArray *optsArr;
+
 @end
 
 @implementation PatrolOptionSelController
@@ -93,16 +96,46 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    UIButton *confirmBtn = [UIButton new];
+    [confirmBtn setTitle:@"确定" forState:UIControlStateNormal];
+    confirmBtn.titleLabel.font = [UIFont boldSystemFontOfSize:18];
+    [confirmBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [confirmBtn setBackgroundColor:[UIColor colorWithRed:44/255.0 green:215/255.0 blue:115/255.0 alpha:1.0]];
+    [confirmBtn addTarget:self action:@selector(confirmAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:confirmBtn];
+    UIEdgeInsets theInsets;
+    if (@available(iOS 11.0, *)) {
+        theInsets = [UIApplication sharedApplication].keyWindow.rootViewController.view.safeAreaInsets;
+    }
+    [confirmBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(@(-theInsets.bottom));
+        make.left.right.equalTo(@0);
+        make.height.equalTo(@44);
+    }];
+    
     [self.view addSubview:self.leftTableView];
     [self.view addSubview:self.rightTableView];
     __weak typeof(self) weakSelf = self;
     [self.leftTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@100);
-        make.left.top.bottom.equalTo(@0);
+        make.left.top.equalTo(@0);
+        make.bottom.equalTo(confirmBtn.mas_top);
     }];
     [self.rightTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(weakSelf.leftTableView.mas_right).offset(0);
-        make.right.top.bottom.equalTo(@0);
+        make.right.top.equalTo(@0);
+        make.bottom.equalTo(confirmBtn.mas_top);
+    }];
+}
+
+-(void)confirmAction:(UIButton *)confirm
+{
+    //TODO:回调电子巡查事件
+    __weak typeof(self) weakSelf = self;
+    [self dismissViewControllerAnimated:YES completion:^{
+        if (self.optionHandler) {
+            self.optionHandler(weakSelf.optsArr);
+        }
     }];
 }
 
@@ -148,8 +181,12 @@
     }
 
     if (tableView.tag == 101) {
-        //TODO:回调电子巡查事件
         PatrolOptionSelModel *model = self.curModel.opts[indexPath.row];
+        if (model.isSelected) {
+            [self.optsArr removeObject:model];
+        }else{
+            [self.optsArr addObject:model];
+        }
         model.isSelected = !model.isSelected;
         [self.rightTableView reloadData];
     }
@@ -225,6 +262,14 @@
         _curModel = self.dataArray[0];
     }
     return _curModel;
+}
+
+-(NSMutableArray *)optsArr
+{
+    if (!_optsArr) {
+        _optsArr = [NSMutableArray new];
+    }
+    return _optsArr;
 }
 
 @end

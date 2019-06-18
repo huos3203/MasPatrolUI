@@ -21,7 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @interface PatrolOptionSelController : UIViewController
-
+///回传已经选中的检查项的数组
+@property (strong, nonatomic) void(^optionHandler)(NSArray *opts);
 @end
 
 NS_ASSUME_NONNULL_END

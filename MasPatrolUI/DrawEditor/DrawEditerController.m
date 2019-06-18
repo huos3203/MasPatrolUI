@@ -74,6 +74,10 @@
     [editor dismissViewControllerAnimated:YES completion:^{
         //跳转到检查项选择器
         PatrolOptionSelController *optselVC = [PatrolOptionSelController new];
+        optselVC.optionHandler = ^(NSArray *opts) {
+            //解析数据
+            //刷新UI
+        };
         [self presentViewController:optselVC animated:YES completion:nil];
     }];
 }
