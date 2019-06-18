@@ -12,19 +12,34 @@
 
 
 @implementation PatrolOptionSelCell
-
+{
+    UIImageView *_selIcon;
+}
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.backgroundColor = [UIColor clearColor];
     self.textLabel.numberOfLines = 0;
+    _selIcon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+    _selIcon.image = [UIImage imageNamed:@"deseleced"];
+    _selIcon.center = CGPointMake(self.bounds.size.width - 30, self.bounds.size.height/2);
+    [self addSubview:_selIcon];
     return self;
 }
 -(void)setModel:(PatrolOptionSelModel *)model
 {
     _model = model;
     self.textLabel.text = model.Name;
+    if (_model.isSelected) {
+        self.textLabel.font = [UIFont systemFontOfSize:14];
+        self.textLabel.textColor = [UIColor colorWithRed:66/255.0 green:139/255.0 blue:254/255.0 alpha:1.0];
+        _selIcon.image = [UIImage imageNamed:@"optSeleced"];
+    }else{
+        _selIcon.image = [UIImage imageNamed:@"deseleced"];
+        self.textLabel.font = [UIFont systemFontOfSize:14];
+        self.textLabel.textColor =  [UIColor colorWithRed:94/255.0 green:99/255.0 blue:123/255.0 alpha:1.0];
+    }
 }
 
 @end
@@ -134,6 +149,9 @@
 
     if (tableView.tag == 101) {
         //TODO:回调电子巡查事件
+        PatrolOptionSelModel *model = self.curModel.opts[indexPath.row];
+        model.isSelected = !model.isSelected;
+        [self.rightTableView reloadData];
     }
 }
 

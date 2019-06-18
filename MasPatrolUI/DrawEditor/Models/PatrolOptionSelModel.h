@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString *Id;
 @property (strong, nonatomic) NSString *Name;
 @property (strong, nonatomic) NSString *clsId;
+@property (assign, nonatomic) BOOL isSelected;
 @end
 
 @interface PatrolOptClsModel : JSONModel
