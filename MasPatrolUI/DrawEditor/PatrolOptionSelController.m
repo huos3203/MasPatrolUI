@@ -14,31 +14,46 @@
 @implementation PatrolOptionSelCell
 {
     UIImageView *_selIcon;
+    UILabel *_label;
 }
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.backgroundColor = [UIColor clearColor];
-    self.textLabel.numberOfLines = 0;
-    _selIcon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+    _selIcon = [UIImageView new];
     _selIcon.image = [UIImage imageNamed:@"deseleced"];
-    _selIcon.center = CGPointMake(self.bounds.size.width - 30, self.bounds.size.height/2);
     [self addSubview:_selIcon];
+    [_selIcon mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.width.equalTo(@20);
+        make.centerY.equalTo(@0);
+        make.right.equalTo(@-10);
+    }];
+    _label = [UILabel new];
+    _label.numberOfLines = 0;
+    [self addSubview:_label];
+    [_label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@10);
+        make.bottom.equalTo(@-10);
+        make.left.equalTo(@15);
+        make.right.equalTo(self->_selIcon.mas_left).offset(-10);
+    }];
+    
     return self;
 }
 -(void)setModel:(PatrolOptionSelModel *)model
 {
     _model = model;
-    self.textLabel.text = model.Name;
+    _label.text = model.Name;
+//    _selIcon.center = CGPointMake(self.bounds.size.width - 20, self.bounds.size.height/2);
     if (_model.isSelected) {
-        self.textLabel.font = [UIFont systemFontOfSize:14];
-        self.textLabel.textColor = [UIColor colorWithRed:66/255.0 green:139/255.0 blue:254/255.0 alpha:1.0];
+        _label.font = [UIFont systemFontOfSize:14];
+        _label.textColor = [UIColor colorWithRed:66/255.0 green:139/255.0 blue:254/255.0 alpha:1.0];
         _selIcon.image = [UIImage imageNamed:@"optSelected"];
     }else{
         _selIcon.image = [UIImage imageNamed:@"deseleced"];
-        self.textLabel.font = [UIFont systemFontOfSize:14];
-        self.textLabel.textColor =  [UIColor colorWithRed:94/255.0 green:99/255.0 blue:123/255.0 alpha:1.0];
+        _label.font = [UIFont systemFontOfSize:14];
+        _label.textColor =  [UIColor colorWithRed:94/255.0 green:99/255.0 blue:123/255.0 alpha:1.0];
     }
 }
 
@@ -246,7 +261,7 @@
             for (int j = 0; j < 10; j++) {
                 PatrolOptionSelModel *selM = [PatrolOptionSelModel new];
                 selM.Id = [NSString stringWithFormat:@"%d",j];
-                selM.Name = [NSString stringWithFormat:@"分类%d>检查项:%d",i,j];
+                selM.Name = [NSString stringWithFormat:@"分类分类分类分类分类分类分类分类分类分类分类分类分类分类分类分类分类分类分类分类分类分类分类分类分类分类分类分类分类分类分类分类分类分类%d>检查项:%d",i,j];
                 [clsm.opts addObject:selM];
             }
             [arr addObject:clsm];
