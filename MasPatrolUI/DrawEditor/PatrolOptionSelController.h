@@ -10,6 +10,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class PatrolOptionSelModel;
+@interface PatrolOptionSelCell : UITableViewCell
+@property (strong, nonatomic) PatrolOptionSelModel *model;
+@end
+@class PatrolOptClsModel;
+@interface PatrolOptionClsCell : UITableViewCell
+@property (strong, nonatomic) PatrolOptClsModel *model;
+@end
+
+
 @interface PatrolOptionSelController : UIViewController
 
 @end

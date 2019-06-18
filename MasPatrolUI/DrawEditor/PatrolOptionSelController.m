@@ -10,6 +10,59 @@
 #import <Masonry/Masonry.h>
 #import "PatrolOptionSelModel.h"
 
+
+@implementation PatrolOptionSelCell
+
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.backgroundColor = [UIColor clearColor];
+    self.textLabel.numberOfLines = 0;
+    return self;
+}
+-(void)setModel:(PatrolOptionSelModel *)model
+{
+    _model = model;
+    self.textLabel.text = model.Name;
+}
+
+@end
+
+@implementation PatrolOptionClsCell
+
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    //设置cell选中色
+    UIView *selection = [[UIView alloc] init];
+    selection.backgroundColor = [UIColor whiteColor];
+    self.selectedBackgroundView = selection;
+    self.backgroundColor = [UIColor clearColor];
+    self.textLabel.numberOfLines = 0;
+    return self;
+}
+
+-(void)setModel:(PatrolOptClsModel *)model
+{
+    _model = model;
+    self.textLabel.text = model.Name;
+}
+-(void)setSelected:(BOOL)selected
+{
+    [super setSelected:selected];
+    if (selected) {
+        self.textLabel.font = [UIFont boldSystemFontOfSize:12];
+        self.textLabel.textColor =  [UIColor colorWithRed:47/255.0 green:56/255.0 blue:86/255.0 alpha:1.0];
+    }else{
+        self.textLabel.font = [UIFont systemFontOfSize:12];
+        self.textLabel.textColor = [UIColor colorWithRed:94/255.0 green:99/255.0 blue:123/255.0 alpha:1.0];
+    }
+}
+
+@end
+
+
 @interface PatrolOptionSelController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) UITableView *leftTableView;
 @property (strong, nonatomic) UITableView *rightTableView;
@@ -54,29 +107,41 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *cellID = tableView.tag == 100?@"leftT":@"rightT";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    NSString *title = @"";
+    UITableViewCell *cell;
     if (tableView.tag == 100){
+        PatrolOptionClsCell *clsCell = [tableView dequeueReusableCellWithIdentifier:cellID];
         PatrolOptClsModel *clsm = self.dataArray[indexPath.row];
-        title = clsm.Name;
+        clsCell.model = clsm;
+        cell = clsCell;
     }
     if (tableView.tag == 101){
+        PatrolOptionSelCell *selCell = [tableView dequeueReusableCellWithIdentifier:cellID];
         PatrolOptionSelModel *selm = self.curModel.opts[indexPath.row];
-        title = selm.Name;
+        selCell.model = selm;
+        cell = selCell;
     }
-    cell.textLabel.text = title;
     return cell;
 }
-
+//
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView.tag == 100) {
+        PatrolOptionClsCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        cell.selected = YES;
         self.curModel = self.dataArray[indexPath.row];
         [self.rightTableView reloadData];
     }
-    
+
     if (tableView.tag == 101) {
         //TODO:回调电子巡查事件
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView.tag == 100) {
+        PatrolOptionClsCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        cell.selected = NO;
     }
 }
 
@@ -88,10 +153,10 @@
         _leftTableView.tag = 100;
         _leftTableView.delegate = self;
         _leftTableView.dataSource = self;
-        [_leftTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"leftT"];
+        [_leftTableView registerClass:[PatrolOptionClsCell class] forCellReuseIdentifier:@"leftT"];
         _leftTableView.tableFooterView = [UIView new];
-        
-        _leftTableView.backgroundColor = [UIColor yellowColor];
+        _leftTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _leftTableView.backgroundColor = [UIColor colorWithRed:244/255.0 green:244/255.0 blue:244/255.0 alpha:1.0];
     }
     return _leftTableView;
 }
@@ -103,10 +168,11 @@
         _rightTableView.tag = 101;
         _rightTableView.delegate = self;
         _rightTableView.dataSource = self;
-        [_rightTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"rightT"];
+        [_rightTableView registerClass:[PatrolOptionSelCell class] forCellReuseIdentifier:@"rightT"];
         _rightTableView.tableFooterView = [UIView new];
+        _rightTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
-        _rightTableView.backgroundColor = [UIColor orangeColor];
+        _rightTableView.backgroundColor = [UIColor whiteColor];
     }
     return _rightTableView;
 }
