@@ -45,7 +45,6 @@
 {
     _model = model;
     _label.text = model.Name;
-//    _selIcon.center = CGPointMake(self.bounds.size.width - 20, self.bounds.size.height/2);
     if (_model.isSelected) {
         _label.font = [UIFont systemFontOfSize:14];
         _label.textColor = [UIColor colorWithRed:66/255.0 green:139/255.0 blue:254/255.0 alpha:1.0];

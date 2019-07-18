@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "ReportOpenAPI.h"
 #import "DrawEditerController.h"
+#import "TestLocationController.h"
 @interface ViewController ()
 
 @end
@@ -23,8 +24,12 @@
 -(void)viewDidAppear:(BOOL)animated
 {
 //    [ReportOpenAPI open:TaskManager from:self];
-    DrawEditerController *editerVC = [DrawEditerController new];
-    [self presentViewController:editerVC animated:YES completion:nil];
+    UIViewController *vc;
+    //涂鸦
+//    vc = [DrawEditerController new];
+    //定位
+    vc = [TestLocationController new];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 @end
