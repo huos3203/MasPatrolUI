@@ -7,15 +7,15 @@
 //
 
 #import "TestLocationController.h"
-#import "LocationManager.h"
+#import "JHLocationManager.h"
 
-@interface TestLocationController ()<LocationManagerDelegate>
+@interface TestLocationController ()<JHLocationManagerDelegate>
 
 @end
 
 @implementation TestLocationController
 {
-    LocationManager *_locationManager;
+    JHLocationManager *_locationManager;
     UILabel *_addressLabel;
 }
 
@@ -26,13 +26,13 @@
     _addressLabel = [UILabel new];
     _addressLabel.center = self.view.center;
     [self.view addSubview:_addressLabel];
-    _locationManager = [[LocationManager alloc] init];
+    _locationManager = [[JHLocationManager alloc] init];
     _locationManager.delegate = self;
     [_locationManager triggerLocationServices];
 }
 
 #pragma mark 定位代理
--(void)updateCurrentLocation:(Location *)location
+-(void)updateCurrentLocation:(JHLocation *)location
 {
     if (location) {
         NSString *address = [NSString stringWithFormat:@"%@-%@",location.subLocality,location.address];

@@ -17,7 +17,7 @@
 		81E0716B227185FD00E3880B /* MasRecordHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E07167227185FC00E3880B /* MasRecordHeaderView.m */; };
 		81E0716C227185FD00E3880B /* MasCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E07169227185FD00E3880B /* MasCalendarView.m */; };
 		81E071702274288500E3880B /* MasRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E0716F2274288500E3880B /* MasRecordCell.m */; };
-		8404ECE822E0756100F25B6D /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404ECE722E0756100F25B6D /* LocationManager.m */; };
+		8404ECE822E0756100F25B6D /* JHLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404ECE722E0756100F25B6D /* JHLocationManager.m */; };
 		8404ECEC22E081E800F25B6D /* TestLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8404ECEB22E081E800F25B6D /* TestLocationController.m */; };
 		848BB43922B246D700D35811 /* libCLImageEditorSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E581B522B23AA700EC25B1 /* libCLImageEditorSDK.a */; };
 		849487F122AFBDED00E21B60 /* DrawEditerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849487F022AFBDED00E21B60 /* DrawEditerController.m */; };
@@ -74,8 +74,8 @@
 		81E07169227185FD00E3880B /* MasCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasCalendarView.m; sourceTree = "<group>"; };
 		81E0716E2274288500E3880B /* MasRecordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasRecordCell.h; sourceTree = "<group>"; };
 		81E0716F2274288500E3880B /* MasRecordCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasRecordCell.m; sourceTree = "<group>"; };
-		8404ECE622E0756100F25B6D /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
-		8404ECE722E0756100F25B6D /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		8404ECE622E0756100F25B6D /* JHLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHLocationManager.h; sourceTree = "<group>"; };
+		8404ECE722E0756100F25B6D /* JHLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHLocationManager.m; sourceTree = "<group>"; };
 		8404ECEA22E081E800F25B6D /* TestLocationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestLocationController.h; sourceTree = "<group>"; };
 		8404ECEB22E081E800F25B6D /* TestLocationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestLocationController.m; sourceTree = "<group>"; };
 		848BB43722B245D700D35811 /* CLImageToolInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLImageToolInfo.h; sourceTree = "<group>"; };
@@ -228,8 +228,8 @@
 		8404ECE522E0749800F25B6D /* Location */ = {
 			isa = PBXGroup;
 			children = (
-				8404ECE622E0756100F25B6D /* LocationManager.h */,
-				8404ECE722E0756100F25B6D /* LocationManager.m */,
+				8404ECE622E0756100F25B6D /* JHLocationManager.h */,
+				8404ECE722E0756100F25B6D /* JHLocationManager.m */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -516,7 +516,7 @@
 				84E81F542293E8AF00E630BB /* ReportOpenAPI.m in Sources */,
 				849487F122AFBDED00E21B60 /* DrawEditerController.m in Sources */,
 				84E81F472292A32300E630BB /* MyContrStackView.m in Sources */,
-				8404ECE822E0756100F25B6D /* LocationManager.m in Sources */,
+				8404ECE822E0756100F25B6D /* JHLocationManager.m in Sources */,
 				84FD8B372281644300BC2BE6 /* StoreSignViewController.m in Sources */,
 				84E81F73229663C900E630BB /* ReportedDoingController.m in Sources */,
 				84E81F5D229408C800E630BB /* ReportedDetailController.m in Sources */,

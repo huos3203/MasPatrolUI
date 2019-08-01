@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <CoreLocation/CLLocationManagerDelegate.h>
-@interface Location : NSObject
+@interface JHLocation : NSObject
 
 @property(assign,nonatomic)double latitude;   //纬
 @property(assign,nonatomic)double longitude;  //经
@@ -18,14 +18,14 @@
 @property(strong,nonatomic)NSString *subLocality;
 @property(strong,nonatomic)NSString *address;
 @end
-@protocol LocationManagerDelegate <NSObject>
+@protocol JHLocationManagerDelegate <NSObject>
 
 @required
 -(void)updateCurrentLocation:(Location *)location;
 -(void)updateCurrentLocationFail:(NSString *)err;
 
 @end
-@interface LocationManager : NSObject<CLLocationManagerDelegate>
+@interface JHLocationManager : NSObject<CLLocationManagerDelegate>
 
 //获取定位的权限
 @property(nonatomic,strong)CLLocationManager *manager;
