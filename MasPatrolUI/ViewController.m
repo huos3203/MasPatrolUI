@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ReportOpenAPI.h"
+#import "PatrolViewController.h"
 #import "DrawEditerController.h"
 #import "TestLocationController.h"
 @interface ViewController ()
@@ -25,10 +26,12 @@
 {
 //    [ReportOpenAPI open:TaskManager from:self];
     UIViewController *vc;
+    //巡查记录
+    vc = [PatrolViewController new];
     //涂鸦
 //    vc = [DrawEditerController new];
     //定位
-    vc = [TestLocationController new];
+//    vc = [TestLocationController new];
     [self presentViewController:vc animated:YES completion:nil];
 }
 

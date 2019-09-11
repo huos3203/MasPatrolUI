@@ -21,7 +21,7 @@
 @protocol JHLocationManagerDelegate <NSObject>
 
 @required
--(void)updateCurrentLocation:(Location *)location;
+-(void)updateCurrentLocation:(JHLocation *)location;
 -(void)updateCurrentLocationFail:(NSString *)err;
 
 @end
@@ -30,7 +30,7 @@
 //获取定位的权限
 @property(nonatomic,strong)CLLocationManager *manager;
 @property(nonatomic,strong)CLLocation   *currLocation;
-@property(nonatomic,weak)id<LocationManagerDelegate> delegate;
+@property(nonatomic,weak)id<JHLocationManagerDelegate> delegate;
 
 
 /**
